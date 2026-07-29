@@ -1,0 +1,18 @@
+{
+  "banco": "Sicredi",
+  "modelo": "sicredi2",
+  "descricaoModelo": "Extrato Sicredi (internet banking/app) — tabela Data/Descrição/Documento/Valor/Saldo",
+  "imagem": "images/sicredi2.png",
+  "marcadorInicio": "Documento Valor (R$) Saldo (R$)",
+  "marcadorFim": "Saldo da conta",
+  "linhasIgnorar": ["SALDO ANTERIOR"],
+  "colDataX": [40, 90],
+  "colDescricaoX": [90, 370],
+  "colValorX": [450, 495],
+  "moeda": "",
+  "formatoValor": "sinalOpcional",
+  "separadorDecimal": ",",
+  "separadorMilhar": ".",
+  "formatoData": "DD/MM/YYYY",
+  "toleranciaLinha": 3
+}

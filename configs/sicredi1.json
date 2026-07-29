@@ -1,0 +1,29 @@
+{
+  "banco": "Sicredi",
+  "modelo": "sicredi1",
+  "descricaoModelo": "Extrato de Conta Corrente Sicredi (formato antigo/largura fixa) — colunas Débito e Crédito separadas, sem sinal no valor",
+  "imagem": "images/sicredi1.png",
+  "marcadorInicio": "HISTORICO DEBITO CREDITO SALDO",
+  "marcadorFim": "SALDO ATUAL",
+  "linhasIgnorar": [
+    "SALDO ANTERIOR",
+    "DETRANSPORTE",
+    "HISTORICO DEBITO CREDITO SALDO",
+    "CCPI VANGUARDA",
+    "PORTO IGUACU",
+    "CARIMA",
+    "FOZ DO IGUACU PR",
+    "PERIODO: DE",
+    "Continua na pagina"
+  ],
+  "colDataX": [25, 80],
+  "colDescricaoX": [120, 375],
+  "colDebitoX": [365, 410],
+  "colCreditoX": [445, 490],
+  "formatoValor": "colunaDebitoCredito",
+  "moeda": "",
+  "separadorDecimal": ",",
+  "separadorMilhar": ".",
+  "formatoData": "DD/MM/YYYY",
+  "toleranciaLinha": 3
+}

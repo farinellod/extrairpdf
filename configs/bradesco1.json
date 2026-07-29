@@ -1,0 +1,24 @@
+{
+  "banco": "Bradesco",
+  "modelo": "bradesco1",
+  "descricaoModelo": "Extrato Mensal / Por Período (Net Empresa) — data agrupada por dia, colunas separadas de Crédito/Débito",
+  "imagem": "images/bradesco1.png",
+  "marcadorInicio": "Dcto. Crédito (R$)",
+  "marcadorFim": "Saldos Invest Fácil",
+  "linhasIgnorar": [
+    "SALDO ANTERIOR",
+    "Total",
+    "Dcto. Crédito (R$)",
+    "Últimos Lançamentos"
+  ],
+  "modoData": "porGrupo",
+  "colDataX": [30, 90],
+  "colDescricaoX": [95, 260],
+  "colValorX": [[335, 400], [430, 480]],
+  "moeda": "",
+  "formatoValor": "sinalOpcional",
+  "separadorDecimal": ",",
+  "separadorMilhar": ".",
+  "formatoData": "DD/MM/YYYY",
+  "toleranciaLinha": 3
+}

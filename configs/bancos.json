@@ -30,5 +30,29 @@
     "config": "configs/itau1.json",
     "imagem": "images/itau1.png",
     "descricao": "Extrato conta corrente Itaú Uniclass — testado (58 lançamentos, soma bate com o extrato)"
+  },
+  {
+    "id": "bradesco1",
+    "banco": "Bradesco",
+    "modelo": "Modelo 1",
+    "config": "configs/bradesco1.json",
+    "imagem": "images/bradesco1.png",
+    "descricao": "Extrato Mensal / Por Período (Net Empresa) — testado (527 lançamentos, data agrupada por dia)"
+  },
+  {
+    "id": "sicredi1",
+    "banco": "Sicredi",
+    "modelo": "Modelo 1",
+    "config": "configs/sicredi1.json",
+    "imagem": "images/sicredi1.png",
+    "descricao": "Extrato Sicredi formato antigo/largura fixa — testado (442 lançamentos, soma bate com a variação de saldo)"
+  },
+  {
+    "id": "sicredi2",
+    "banco": "Sicredi",
+    "modelo": "Modelo 2",
+    "config": "configs/sicredi2.json",
+    "imagem": "images/sicredi2.png",
+    "descricao": "Extrato Sicredi internet banking/app — testado (65 lançamentos, soma bate com a variação de saldo)"
   }
 ]
