@@ -70,7 +70,14 @@ ordem de leitura. O `pdfParser.js`:
      lançamento, para extratos que só imprimem a data uma vez por dia (ex:
      Bradesco)
    - `formatoData`: `"DD/MM/YYYY"` (padrão) ou `"DD/MM/AA"` (ano com 2 dígitos,
-     ex: Stone)
+     ex: Stone) ou `"DD/MM"` (sem ano nenhum na linha do lançamento — o ano é
+     descoberto a partir de uma linha de contexto em outro ponto da página,
+     ex: C6, que só imprime o ano no cabeçalho de cada mês — "Janeiro 2026 (
+     01/01/2026 - 31/01/2026 )". Nesse modo o parser varre toda linha (mesmo
+     antes do `marcadorInicio` ou linhas que serão ignoradas) procurando um
+     `DD/MM/YYYY` solto e usa o ano da ocorrência mais recente acima de cada
+     lançamento. Dá pra trocar o padrão de busca com `anoContextoRegex` se
+     algum banco usar outro formato de cabeçalho)
    - `moeda`, `separadorDecimal`, `separadorMilhar`
    - dá pra descobrir os valores de `colDataX`/`colValorX`/`colDescricaoX`
      abrindo o PDF e testando, ou me mandando o PDF de exemplo pra eu calibrar
@@ -132,9 +139,18 @@ Sem necessidade de build ou variável de ambiente — é um site estático puro.
 ## Limitações conhecidas / próximos passos
 
 - O parser foi validado com extratos reais de: Cresol (21 lançamentos),
-  Santander (488), Itaú (58), Bradesco (527) e Sicredi nos dois formatos
-  (442 no formato antigo, 65 no novo) — em todos, a soma dos valores
-  reconcilia com a variação de saldo do próprio extrato.
+  Santander (488), Itaú (58), Bradesco (527), Sicredi nos dois formatos
+  (442 no formato antigo, 65 no novo), Caixa (97), Stone (400), Santander
+  modelo 2 (73) e C6 Bank (919) — em todos, a soma dos valores reconcilia
+  com a variação de saldo do próprio extrato (no C6, entradas/saídas batem
+  exatamente com os totais que o próprio extrato imprime em cada um dos 6
+  cabeçalhos de mês).
+- **C6 tem duas colunas de data** (Data lançamento / Data contábil) e nenhuma
+  das duas traz o ano — só o dia/mês. O config `c61.json` usa a coluna "Data
+  lançamento" (a mais à esquerda) e descobre o ano pelo cabeçalho de cada mês
+  (ver `formatoData: "DD/MM"` acima). Se preferir usar a "Data contábil" em
+  vez da "Data lançamento", troque `colDataX` de `[30, 70]` para `[85, 120]`
+  em `configs/c61.json`.
 - Cada novo banco/modelo precisa ser calibrado e testado com um PDF de
   exemplo antes de confiar 100% no resultado.
 - **Cabeçalho às vezes é imagem, não texto.** O extrato do Bradesco, por
