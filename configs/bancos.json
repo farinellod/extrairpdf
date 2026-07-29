@@ -14,5 +14,13 @@
     "config": "configs/cresol2.example.json",
     "imagem": "images/cresol2.png",
     "descricao": "Modelo de exemplo — copie configs/cresol1.json, ajuste as coordenadas e troque a imagem quando tiver outro layout de extrato Cresol"
+  },
+  {
+    "id": "santander1",
+    "banco": "Santander",
+    "modelo": "Modelo 1",
+    "config": "configs/santander1.json",
+    "imagem": "images/santander1.png",
+    "descricao": "Extrato Internet Banking Empresarial Santander — testado com extrato de 23 páginas (488 lançamentos, soma bate com o extrato)"
   }
 ]

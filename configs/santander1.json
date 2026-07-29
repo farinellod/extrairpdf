@@ -1,0 +1,21 @@
+{
+  "banco": "Santander",
+  "modelo": "santander1",
+  "descricaoModelo": "Extrato Internet Banking Empresarial — tabela Data/Histórico/Documento/Valor/Saldo (testado com extrato de set/2025)",
+  "imagem": "images/santander1.png",
+  "marcadorInicio": "Documento Valor (R$)",
+  "marcadorFim": "Saldo em Investimentos",
+  "linhasIgnorar": [
+    "SALDO ANTERIOR",
+    "Data Histórico Documento Valor"
+  ],
+  "colDataX": [30, 60],
+  "colValorX": [455, 510],
+  "colDescricaoX": [95, 400],
+  "moeda": "",
+  "formatoValor": "sinalOpcional",
+  "separadorDecimal": ",",
+  "separadorMilhar": ".",
+  "formatoData": "DD/MM/YYYY",
+  "toleranciaLinha": 3
+}

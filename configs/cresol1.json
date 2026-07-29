@@ -5,6 +5,7 @@
   "imagem": "images/cresol1.png",
   "marcadorInicio": "Lançamentos",
   "linhasIgnorar": [
+    "Lançamentos",
     "Saldo do Dia",
     "Saldo Anterior",
     "Consulta Posição",
