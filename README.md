@@ -69,6 +69,8 @@ ordem de leitura. O `pdfParser.js`:
      lançamento; `"porGrupo"` usa a última data vista antes daquele
      lançamento, para extratos que só imprimem a data uma vez por dia (ex:
      Bradesco)
+   - `formatoData`: `"DD/MM/YYYY"` (padrão) ou `"DD/MM/AA"` (ano com 2 dígitos,
+     ex: Stone)
    - `moeda`, `separadorDecimal`, `separadorMilhar`
    - dá pra descobrir os valores de `colDataX`/`colValorX`/`colDescricaoX`
      abrindo o PDF e testando, ou me mandando o PDF de exemplo pra eu calibrar
@@ -89,6 +91,22 @@ ordem de leitura. O `pdfParser.js`:
 Se um banco tiver vários layouts (extrato antigo vs. novo, PF vs. PJ etc.),
 é só criar `bb1`, `bb2`, `bb3` do mesmo jeito — igual já está feito para
 `cresol1` / `cresol2`.
+
+## Sinal, moeda e sufixo em pedaços separados
+
+Em alguns extratos (Stone, Caixa) o PDF guarda o sinal, o "R$" e o número como
+três palavras separadas, mesmo colados visualmente (ex: `-` `R$` `0,24`, ou
+`3,87` `D`). O parser junta automaticamente qualquer sequência desses
+pedacinhos que caia dentro da(s) faixa(s) de `colValorX` (ou
+`colDebitoX`/`colCreditoX`) antes de tentar casar com o formato configurado —
+não precisa fazer nada de especial no config além de acertar a faixa de
+coluna.
+
+## Formato do Excel gerado
+
+A coluna Valor sai já em formato contábil do Excel (moeda com sinal,
+`R$ 1.234,56` / `-R$ 1.234,56`), configurado em `js/app.js` na função
+`baixarExcel`.
 
 ## Rodando localmente
 
