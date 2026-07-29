@@ -1,0 +1,17 @@
+{
+  "banco": "Caixa",
+  "modelo": "caixa1",
+  "descricaoModelo": "Extrato por período (Gerenciador Caixa) — sufixo C/D separado do valor no PDF",
+  "imagem": "images/caixa1.png",
+  "marcadorInicio": "Histórico Valor Saldo",
+  "linhasIgnorar": ["SALDO DIA"],
+  "colDataX": [35, 90],
+  "colDescricaoX": [160, 390],
+  "colValorX": [360, 420],
+  "formatoValor": "sufixoCD",
+  "moeda": "",
+  "separadorDecimal": ",",
+  "separadorMilhar": ".",
+  "formatoData": "DD/MM/YYYY",
+  "toleranciaLinha": 3
+}

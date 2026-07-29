@@ -1,0 +1,17 @@
+{
+  "banco": "Santander",
+  "modelo": "santander2",
+  "descricaoModelo": "Extrato Aplicativo Santander Empresas — layout diferente do Internet Banking (Modelo 1), mesma lógica de sinal no valor",
+  "imagem": "images/santander2.png",
+  "marcadorInicio": "Histórico Documento Valor",
+  "linhasIgnorar": [],
+  "colDataX": [28, 90],
+  "colDescricaoX": [88, 300],
+  "colValorX": [425, 470],
+  "moeda": "",
+  "formatoValor": "sinalOpcional",
+  "separadorDecimal": ",",
+  "separadorMilhar": ".",
+  "formatoData": "DD/MM/YYYY",
+  "toleranciaLinha": 3
+}

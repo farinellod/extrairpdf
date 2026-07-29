@@ -24,6 +24,14 @@
     "descricao": "Extrato Internet Banking Empresarial Santander — testado com extrato de 23 páginas (488 lançamentos, soma bate com o extrato)"
   },
   {
+    "id": "santander2",
+    "banco": "Santander",
+    "modelo": "Modelo 2",
+    "config": "configs/santander2.json",
+    "imagem": "images/santander2.png",
+    "descricao": "Extrato Aplicativo Santander Empresas — layout diferente do Modelo 1, testado (73 lançamentos no trecho enviado)"
+  },
+  {
     "id": "itau1",
     "banco": "Itaú",
     "modelo": "Modelo 1",
@@ -54,5 +62,21 @@
     "config": "configs/sicredi2.json",
     "imagem": "images/sicredi2.png",
     "descricao": "Extrato Sicredi internet banking/app — testado (65 lançamentos, soma bate com a variação de saldo)"
+  },
+  {
+    "id": "caixa1",
+    "banco": "Caixa",
+    "modelo": "Modelo 1",
+    "config": "configs/caixa1.json",
+    "imagem": "images/caixa1.png",
+    "descricao": "Extrato por período (Gerenciador Caixa) — testado (97 lançamentos, soma bate com o saldo final)"
+  },
+  {
+    "id": "stone1",
+    "banco": "Stone",
+    "modelo": "Modelo 1",
+    "config": "configs/stone1.json",
+    "imagem": "images/stone1.png",
+    "descricao": "Extrato de conta corrente Stone — testado (400 lançamentos, início e fim conferidos)"
   }
 ]

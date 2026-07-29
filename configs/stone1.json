@@ -1,0 +1,24 @@
+{
+  "banco": "Stone",
+  "modelo": "stone1",
+  "descricaoModelo": "Extrato de conta corrente Stone — sinal, moeda e número às vezes vêm em tokens separados no PDF",
+  "imagem": "images/stone1.png",
+  "marcadorInicio": "DESCRIÇÃO VALOR SALDO",
+  "marcadorFim": "Informações do Comprovante",
+  "linhasIgnorar": [
+    "Extrato de conta corrente",
+    "Emitido em",
+    "Página",
+    "Período: de",
+    "DATA TIPO DESCRIÇÃO"
+  ],
+  "colDataX": [18, 70],
+  "colDescricaoX": [115, 280],
+  "colValorX": [280, 335],
+  "formatoValor": "prefixoSinal",
+  "moeda": "R$",
+  "separadorDecimal": ",",
+  "separadorMilhar": ".",
+  "formatoData": "DD/MM/AA",
+  "toleranciaLinha": 3
+}
