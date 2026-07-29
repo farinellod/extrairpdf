@@ -78,5 +78,13 @@
     "config": "configs/stone1.json",
     "imagem": "images/stone1.png",
     "descricao": "Extrato de conta corrente Stone — testado (400 lançamentos, início e fim conferidos)"
+  },
+  {
+    "id": "c61",
+    "banco": "C6 Bank",
+    "modelo": "Modelo 1",
+    "config": "configs/c61.json",
+    "imagem": "images/c61.png",
+    "descricao": "Extrato de conta corrente C6 Bank — testado (919 lançamentos, entradas/saídas batem com os 6 meses do extrato)"
   }
 ]

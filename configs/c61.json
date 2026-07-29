@@ -1,0 +1,23 @@
+{
+  "banco": "C6 Bank",
+  "modelo": "c61",
+  "descricaoModelo": "Extrato de conta corrente C6 Bank (site, período customizado) — duas colunas de data (lançamento/contábil) sem ano, ano vem do cabeçalho de cada mês",
+  "imagem": "images/c61.png",
+  "marcadorInicio": "Tipo Descrição Valor",
+  "marcadorFim": "Informações sujeitas a alteração",
+  "linhasIgnorar": [
+    "Tipo Descrição Valor",
+    "Entradas:",
+    "Saldo do dia",
+    "Extrato exportado"
+  ],
+  "colDataX": [30, 70],
+  "colDescricaoX": [230, 520],
+  "colValorX": [515, 560],
+  "formatoValor": "prefixoSinal",
+  "moeda": "R$",
+  "separadorDecimal": ",",
+  "separadorMilhar": ".",
+  "formatoData": "DD/MM",
+  "toleranciaLinha": 3
+}
