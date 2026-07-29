@@ -134,10 +134,21 @@ function flushBuffer(buffer) {
 
 // pages: array (por página) de arrays de items { text, x0, top }
 function parseTransactions(pages, config) {
-  const dateRegex =
-    (config.formatoData || 'DD/MM/YYYY').toUpperCase().includes('YYYY')
+  // "DD/MM" -> extrato só imprime dia/mês em cada lançamento; o ano vem de
+  // uma linha de contexto em outro lugar da página (ex: cabeçalho de mês do
+  // C6, "Janeiro 2026 ( 01/01/2026 - ... )"). Regex de contexto default pega
+  // qualquer DD/MM/YYYY solto na linha; dá pra sobrescrever com
+  // `anoContextoRegex` na config se algum banco precisar de outro padrão.
+  const formatoDataCfg = (config.formatoData || 'DD/MM/YYYY').toUpperCase();
+  const usaAnoContexto = formatoDataCfg === 'DD/MM';
+  const dateRegex = usaAnoContexto
+    ? /^\d{2}\/\d{2}$/
+    : formatoDataCfg.includes('YYYY')
       ? /^\d{2}\/\d{2}\/\d{4}$/
       : /^\d{2}\/\d{2}\/\d{2}$/;
+  const anoContextoRegex = config.anoContextoRegex
+    ? new RegExp(config.anoContextoRegex)
+    : /\d{2}\/\d{2}\/(\d{4})/;
   const ignorar = config.linhasIgnorar || [];
   const tol = config.toleranciaLinha || 3;
   const colunaDebitoCredito = config.formatoValor === 'colunaDebitoCredito';
@@ -149,6 +160,7 @@ function parseTransactions(pages, config) {
     : normalizeRanges(config.colValorX);
 
   let flat = [];
+  let anoContextos = []; // { top, ano } — só usado quando usaAnoContexto
   let ended = false;
   let started = false;
   pages.forEach((items, pageIdx) => {
@@ -169,6 +181,15 @@ function parseTransactions(pages, config) {
     for (const line of lines) {
       const sortedItems = line.items.slice().sort((a, b) => a.x0 - b.x0);
       const lineText = sortedItems.map((it) => it.text).join(' ');
+
+      // Captura o contexto de ano ANTES de qualquer filtro (marcadorInicio/
+      // ignorar), porque a linha que traz o ano (cabeçalho de mês) às vezes
+      // vem antes do marcadorInicio ou acaba sendo uma linha ignorada.
+      if (usaAnoContexto) {
+        const m = lineText.match(anoContextoRegex);
+        if (m) anoContextos.push({ top: line.top, ano: m[1] });
+      }
+
       if (config.marcadorFim && includesCollapsed(lineText, config.marcadorFim)) {
         ended = true;
         break;
@@ -184,7 +205,18 @@ function parseTransactions(pages, config) {
     }
   });
 
-  const dateItems = flat.filter((it) => dateRegex.test(it.text) && inRange(it.x0, config.colDataX));
+  function resolveAno(top) {
+    let best = null;
+    for (const c of anoContextos) {
+      if (c.top <= top && (!best || c.top > best.top)) best = c;
+    }
+    return (best || anoContextos[0] || {}).ano || '';
+  }
+
+  let dateItems = flat.filter((it) => dateRegex.test(it.text) && inRange(it.x0, config.colDataX));
+  if (usaAnoContexto) {
+    dateItems = dateItems.map((it) => ({ ...it, text: `${it.text}/${resolveAno(it.top)}` }));
+  }
 
   let valorItems;
   if (colunaDebitoCredito) {
