@@ -1,0 +1,221 @@
+:root {
+  --paper: #ECEAE1;
+  --paper-raised: #F6F4EC;
+  --ink: #1F2A24;
+  --ink-soft: #4B554E;
+  --line: #C9C4B4;
+  --accent: #A9762F;
+  --accent-dark: #7E5720;
+  --credit: #2F6B4F;
+  --debit: #A33B2C;
+  --serif: 'Source Serif 4', Georgia, serif;
+  --sans: 'Inter', system-ui, sans-serif;
+  --mono: 'IBM Plex Mono', ui-monospace, monospace;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  line-height: 1.45;
+}
+
+.topbar {
+  padding: 2.25rem 1.25rem 1.5rem;
+  max-width: 640px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.stamp {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.25rem;
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  color: var(--accent-dark);
+  border: 1px solid var(--accent-dark);
+  padding: 0.15rem 0.5rem;
+  transform: rotate(-3deg);
+  opacity: 0.7;
+}
+
+.topbar h1 {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 2rem;
+  margin: 0 0 0.4rem;
+}
+
+.dash { color: var(--accent); }
+
+.subtitle {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 0.95rem;
+  max-width: 46ch;
+}
+
+.sheet {
+  max-width: 640px;
+  margin: 0 auto 2rem;
+  background: var(--paper-raised);
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  padding: 1.75rem 1.5rem 2rem;
+}
+
+.step + .step {
+  margin-top: 1.75rem;
+  padding-top: 1.75rem;
+  border-top: 1px dashed var(--line);
+}
+
+.step-label {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent-dark);
+  margin-bottom: 0.75rem;
+}
+
+.row {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  flex: 1;
+  min-width: 200px;
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+}
+
+select, input[type="file"] {
+  font-family: var(--sans);
+  font-size: 0.95rem;
+  padding: 0.6rem 0.7rem;
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  background: #fff;
+  color: var(--ink);
+}
+
+.hint {
+  margin: 0.6rem 0 0;
+  font-size: 0.82rem;
+  color: var(--ink-soft);
+}
+
+.preview-frame {
+  border: 1px solid var(--line);
+  background: #fff;
+  min-height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.preview-frame img {
+  max-width: 100%;
+  display: block;
+}
+
+.preview-fallback {
+  padding: 2rem 1rem;
+  color: var(--ink-soft);
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+.dropzone {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1.5px dashed var(--accent);
+  padding: 1.5rem;
+  cursor: pointer;
+  color: var(--accent-dark);
+  font-size: 0.9rem;
+  background: #fff;
+  transition: background 0.15s ease;
+}
+
+.dropzone:hover { background: #FBF8F0; }
+
+.btn-primary {
+  margin-top: 1.75rem;
+  width: 100%;
+  padding: 0.85rem;
+  background: var(--credit);
+  color: #fff;
+  border: none;
+  border-radius: 2px;
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.btn-primary:disabled {
+  background: #B7BDB6;
+  cursor: not-allowed;
+}
+
+.btn-primary:not(:disabled):hover { background: #26543F; }
+
+.status {
+  min-height: 1.2em;
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  margin: 0.75rem 0 0;
+}
+
+.resultado {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px dashed var(--line);
+}
+
+.table-wrap {
+  max-height: 340px;
+  overflow: auto;
+  border: 1px solid var(--line);
+}
+
+table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+th, td { padding: 0.5rem 0.6rem; text-align: left; border-bottom: 1px solid var(--line); }
+th { background: #fff; font-family: var(--mono); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.04em; position: sticky; top: 0; }
+td:last-child, th:last-child { text-align: right; font-family: var(--mono); }
+tr td.valor-credito { color: var(--credit); }
+tr td.valor-debito { color: var(--debit); }
+
+.footer {
+  max-width: 640px;
+  margin: 0 auto 3rem;
+  padding: 0 1.5rem;
+  font-size: 0.78rem;
+  color: var(--ink-soft);
+}
+
+.footer code {
+  font-family: var(--mono);
+  background: #E2DFD2;
+  padding: 0.05rem 0.35rem;
+}
+
+@media (max-width: 480px) {
+  .topbar h1 { font-size: 1.6rem; }
+  .stamp { display: none; }
+}
