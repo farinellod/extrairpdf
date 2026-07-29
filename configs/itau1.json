@@ -1,0 +1,18 @@
+{
+  "banco": "Itaú",
+  "modelo": "itau1",
+  "descricaoModelo": "Extrato conta corrente Itaú Uniclass — tabela Data/Lançamentos/Valor/Saldo",
+  "imagem": "images/itau1.png",
+  "marcadorInicio": "valor (R$) saldo (R$)",
+  "marcadorFim": "Aviso!",
+  "linhasIgnorar": ["SALDO DO DIA"],
+  "colDataX": [25, 90],
+  "colValorX": [400, 470],
+  "colDescricaoX": [90, 400],
+  "moeda": "",
+  "formatoValor": "sinalOpcional",
+  "separadorDecimal": ",",
+  "separadorMilhar": ".",
+  "formatoData": "DD/MM/YYYY",
+  "toleranciaLinha": 3
+}

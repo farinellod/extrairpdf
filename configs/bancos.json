@@ -22,5 +22,13 @@
     "config": "configs/santander1.json",
     "imagem": "images/santander1.png",
     "descricao": "Extrato Internet Banking Empresarial Santander — testado com extrato de 23 páginas (488 lançamentos, soma bate com o extrato)"
+  },
+  {
+    "id": "itau1",
+    "banco": "Itaú",
+    "modelo": "Modelo 1",
+    "config": "configs/itau1.json",
+    "imagem": "images/itau1.png",
+    "descricao": "Extrato conta corrente Itaú Uniclass — testado (58 lançamentos, soma bate com o extrato)"
   }
 ]
