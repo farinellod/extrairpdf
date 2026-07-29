@@ -45,11 +45,23 @@ ordem de leitura. O `pdfParser.js`:
    nome, por exemplo `configs/bb1.json`
 2. Ajuste os campos olhando um extrato real desse banco:
    - `marcadorInicio`: texto que marca o início da lista de lançamentos
+   - `marcadorFim` (opcional): texto que marca o fim (ex: um resumo/saldo que
+     vem depois da tabela, como no extrato do Santander)
    - `linhasIgnorar`: textos de linhas a pular (saldo, cabeçalho, rodapé)
    - `colDataX` / `colValorX`: faixa de posição horizontal (em pontos) onde
-     ficam a data e o valor — dá pra descobrir isso abrindo o PDF e testando
-     valores, ou me mandando o PDF de exemplo pra eu calibrar
+     ficam a data e o valor
+   - `colDescricaoX` (opcional, recomendado): faixa de posição da coluna de
+     descrição — evita que outras colunas (tipo "Documento" ou "Saldo")
+     vazem para dentro da descrição
+   - `formatoValor`: como o valor aparece no extrato —
+     - `"prefixoSinal"` (padrão): `+ R$ 1.000,00` / `- R$ 800,00` (Cresol)
+     - `"sinalOpcional"`: `840,95` (crédito) / `-77,50` (débito), sem moeda
+       (Santander)
+     - `"sufixoCD"`: `R$ 1.800,00D` / `R$ 181,65C` — D de débito, C de
+       crédito, no final do valor (Sicoob — ver observação abaixo)
    - `moeda`, `separadorDecimal`, `separadorMilhar`
+   - dá pra descobrir os valores de `colDataX`/`colValorX`/`colDescricaoX`
+     abrindo o PDF e testando, ou me mandando o PDF de exemplo pra eu calibrar
 3. Adicione uma imagem de prévia em `images/` (um print da página 1, por
    exemplo) e registre tudo em `configs/bancos.json`:
 
@@ -92,7 +104,16 @@ Sem necessidade de build ou variável de ambiente — é um site estático puro.
 ## Limitações conhecidas / próximos passos
 
 - O parser foi validado com um extrato real da Cresol (21 lançamentos, todos
-  batendo). Cada novo banco/modelo precisa ser calibrado e testado com um
-  PDF de exemplo antes de confiar 100% no resultado.
-- PDFs escaneados (imagem, sem texto selecionável) não funcionam — precisaria
-  de OCR, que está fora do escopo deste site 100% client-side.
+  batendo) e um extrato real do Santander (488 lançamentos — a soma de todos
+  os valores fecha em zero, o que confere com o mecanismo de varredura
+  automática de saldo do Santander/Contamax).
+- Cada novo banco/modelo precisa ser calibrado e testado com um PDF de
+  exemplo antes de confiar 100% no resultado.
+- **PDFs de imagem não funcionam.** Um extrato Sicoob enviado como teste veio
+  sem nenhum texto selecionável — é uma imagem (print da tela do internet
+  banking, não um PDF "de verdade"). Nesse caso não tem como ler posição de
+  texto, e OCR seria necessário — só que OCR é bem menos confiável pra
+  números financeiros e sairia do escopo "roda rápido no navegador". Antes de
+  ir pra esse caminho, vale checar se o Sicoob oferece algum outro tipo de
+  exportação (extrato em outro layout, CSV ou OFX) na área de internet
+  banking — costuma ser bem mais confiável que OCR.
