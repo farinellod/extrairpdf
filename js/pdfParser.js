@@ -73,8 +73,9 @@ function getValorMatcher(config) {
     };
   }
 
-  // default: prefixoSinal
-  const re = new RegExp('^[+-]\\s*' + moeda + '\\s*[\\d.,]+$');
+  // default: prefixoSinal — sinal de "+" é opcional (alguns extratos só
+  // marcam o "-" no débito e não mostram nada no crédito)
+  const re = new RegExp('^[+-]?\\s*' + moeda + '\\s*[\\d.,]+$');
   return {
     regex: re,
     parse: (raw) => {
@@ -88,15 +89,64 @@ function getValorMatcher(config) {
   };
 }
 
+function normalizeRanges(range) {
+  if (!range) return [];
+  return Array.isArray(range[0]) ? range : [range];
+}
+
+// Junta, dentro de uma mesma linha, sequências de tokens "parecidos com valor"
+// (sinal, símbolo de moeda, número, sufixo C/D) que caem numa mesma coluna-alvo.
+// Necessário porque alguns extratos (Stone, Caixa) trazem cada pedacinho do
+// valor como um item de texto separado no PDF, mesmo colados visualmente.
+function mergeValueTokens(sortedItems, ranges, moeda) {
+  if (ranges.length === 0) return sortedItems;
+  const isValorLike = (t) =>
+    t === '+' || t === '-' || t === 'C' || t === 'D' || t === moeda || /^[\d.,]+$/.test(t);
+
+  const result = [];
+  let buffer = null;
+  for (const it of sortedItems) {
+    const rangeIdx = ranges.findIndex((r) => it.x0 >= r[0] && it.x0 <= r[1]);
+    if (rangeIdx >= 0 && isValorLike(it.text)) {
+      if (buffer && buffer.rangeIdx === rangeIdx) {
+        buffer.items.push(it);
+      } else {
+        if (buffer) result.push(flushBuffer(buffer));
+        buffer = { rangeIdx, items: [it] };
+      }
+    } else {
+      if (buffer) { result.push(flushBuffer(buffer)); buffer = null; }
+      result.push(it);
+    }
+  }
+  if (buffer) result.push(flushBuffer(buffer));
+  return result;
+}
+
+function flushBuffer(buffer) {
+  const items = buffer.items;
+  return {
+    text: items.map((i) => i.text).join(' '),
+    x0: items[0].x0,
+    top: items[0].top,
+  };
+}
+
 // pages: array (por página) de arrays de items { text, x0, top }
 function parseTransactions(pages, config) {
-  const dateRegex = /^\d{2}\/\d{2}\/\d{4}$/;
+  const dateRegex =
+    (config.formatoData || 'DD/MM/YYYY').toUpperCase().includes('YYYY')
+      ? /^\d{2}\/\d{2}\/\d{4}$/
+      : /^\d{2}\/\d{2}\/\d{2}$/;
   const ignorar = config.linhasIgnorar || [];
   const tol = config.toleranciaLinha || 3;
   const colunaDebitoCredito = config.formatoValor === 'colunaDebitoCredito';
   const { regex: valorRegex, parse: parseValorFn } = colunaDebitoCredito
     ? { regex: /^[\d.,]+$/, parse: (raw) => parseNumero(raw.trim(), config) }
     : getValorMatcher(config);
+  const valorRanges = colunaDebitoCredito
+    ? normalizeRanges(config.colDebitoX).concat(normalizeRanges(config.colCreditoX))
+    : normalizeRanges(config.colValorX);
 
   let flat = [];
   let ended = false;
@@ -117,11 +167,8 @@ function parseTransactions(pages, config) {
       });
 
     for (const line of lines) {
-      const lineText = line.items
-        .slice()
-        .sort((a, b) => a.x0 - b.x0)
-        .map((it) => it.text)
-        .join(' ');
+      const sortedItems = line.items.slice().sort((a, b) => a.x0 - b.x0);
+      const lineText = sortedItems.map((it) => it.text).join(' ');
       if (config.marcadorFim && includesCollapsed(lineText, config.marcadorFim)) {
         ended = true;
         break;
@@ -131,7 +178,9 @@ function parseTransactions(pages, config) {
         continue;
       }
       if (ignorar.some((s) => includesCollapsed(lineText, s))) continue;
-      flat.push(...line.items);
+
+      const itemsParaFlat = mergeValueTokens(sortedItems, valorRanges, config.moeda || '');
+      flat.push(...itemsParaFlat);
     }
   });
 

@@ -95,7 +95,21 @@ function baixarExcel(transacoes, nomeArquivo) {
     Valor: t.valor,
   }));
   const ws = XLSX.utils.json_to_sheet(dados);
-  ws['!cols'] = [{ wch: 12 }, { wch: 55 }, { wch: 14 }];
+  ws['!cols'] = [{ wch: 12 }, { wch: 55 }, { wch: 16 }];
+
+  // Formato contábil (moeda com sinal) na coluna Valor (C), a partir da linha 2
+  const formatoContabil =
+    '_-"R$" * #,##0.00_-;-"R$" * #,##0.00_-;_-"R$" * "-"??_-;_-@_-';
+  const range = XLSX.utils.decode_range(ws['!ref']);
+  for (let row = range.s.r + 1; row <= range.e.r; row++) {
+    const addr = XLSX.utils.encode_cell({ r: row, c: 2 });
+    const cell = ws[addr];
+    if (cell) {
+      cell.t = 'n';
+      cell.z = formatoContabil;
+    }
+  }
+
   const wb = XLSX.utils.book_new();
   XLSX.utils.book_append_sheet(wb, ws, 'Lançamentos');
   XLSX.writeFile(wb, nomeArquivo);
