@@ -1,0 +1,18 @@
+[
+  {
+    "id": "cresol1",
+    "banco": "Cresol",
+    "modelo": "Modelo 1",
+    "config": "configs/cresol1.json",
+    "imagem": "images/cresol1.png",
+    "descricao": "Extrato de conta corrente Cresol — testado com extrato de 2026 (saldo/limite no topo, 2 colunas)"
+  },
+  {
+    "id": "cresol2",
+    "banco": "Cresol",
+    "modelo": "Modelo 2 (exemplo)",
+    "config": "configs/cresol2.example.json",
+    "imagem": "images/cresol2.png",
+    "descricao": "Modelo de exemplo — copie configs/cresol1.json, ajuste as coordenadas e troque a imagem quando tiver outro layout de extrato Cresol"
+  }
+]

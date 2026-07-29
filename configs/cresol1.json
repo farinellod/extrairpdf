@@ -1,0 +1,25 @@
+{
+  "banco": "Cresol",
+  "modelo": "cresol1",
+  "descricaoModelo": "Extrato conta corrente - layout 2 colunas (testado em extratos de 2026)",
+  "imagem": "images/cresol1.png",
+  "marcadorInicio": "Lançamentos",
+  "linhasIgnorar": [
+    "Saldo do Dia",
+    "Saldo Anterior",
+    "Consulta Posição",
+    "Periodo de",
+    "Página",
+    "Agência",
+    "Saldo em Conta",
+    "Limite de Crédito",
+    "Saldo Disponível"
+  ],
+  "colDataX": [70, 120],
+  "colValorX": [400, 999],
+  "moeda": "R$",
+  "separadorDecimal": ",",
+  "separadorMilhar": ".",
+  "formatoData": "DD/MM/YYYY",
+  "toleranciaLinha": 3
+}

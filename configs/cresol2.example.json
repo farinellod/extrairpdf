@@ -1,0 +1,26 @@
+{
+  "_observacao": "TEMPLATE — ainda não validado. Duplique este arquivo, renomeie para cresol2.json, ajuste colDataX/colValorX/linhasIgnorar olhando as coordenadas do novo extrato, e adicione a entrada correspondente em bancos.json.",
+  "banco": "Cresol",
+  "modelo": "cresol2",
+  "descricaoModelo": "Exemplo — copiar e ajustar quando houver um segundo layout de extrato Cresol",
+  "imagem": "images/cresol2.png",
+  "marcadorInicio": "Lançamentos",
+  "linhasIgnorar": [
+    "Saldo do Dia",
+    "Saldo Anterior",
+    "Consulta Posição",
+    "Periodo de",
+    "Página",
+    "Agência",
+    "Saldo em Conta",
+    "Limite de Crédito",
+    "Saldo Disponível"
+  ],
+  "colDataX": [70, 120],
+  "colValorX": [400, 999],
+  "moeda": "R$",
+  "separadorDecimal": ",",
+  "separadorMilhar": ".",
+  "formatoData": "DD/MM/YYYY",
+  "toleranciaLinha": 3
+}
