@@ -56,9 +56,19 @@ ordem de leitura. O `pdfParser.js`:
    - `formatoValor`: como o valor aparece no extrato —
      - `"prefixoSinal"` (padrão): `+ R$ 1.000,00` / `- R$ 800,00` (Cresol)
      - `"sinalOpcional"`: `840,95` (crédito) / `-77,50` (débito), sem moeda
-       (Santander)
+       (Santander, Itaú, Sicredi novo). `colValorX` também aceita uma lista de
+       faixas — `[[335,400],[430,480]]` — quando o valor pode cair em mais de
+       uma coluna (ex: Bradesco, que tem Crédito e Débito em colunas
+       separadas mas cada uma já traz o sinal certo no texto)
      - `"sufixoCD"`: `R$ 1.800,00D` / `R$ 181,65C` — D de débito, C de
        crédito, no final do valor (Sicoob — ver observação abaixo)
+     - `"colunaDebitoCredito"`: duas colunas separadas SEM sinal nenhum no
+       texto — o sinal vem de qual coluna bateu. Precisa de `colDebitoX` e
+       `colCreditoX` em vez de `colValorX` (ex: Sicredi formato antigo)
+   - `modoData`: `"porTransacao"` (padrão) pega a data mais próxima de cada
+     lançamento; `"porGrupo"` usa a última data vista antes daquele
+     lançamento, para extratos que só imprimem a data uma vez por dia (ex:
+     Bradesco)
    - `moeda`, `separadorDecimal`, `separadorMilhar`
    - dá pra descobrir os valores de `colDataX`/`colValorX`/`colDescricaoX`
      abrindo o PDF e testando, ou me mandando o PDF de exemplo pra eu calibrar
@@ -103,12 +113,17 @@ Sem necessidade de build ou variável de ambiente — é um site estático puro.
 
 ## Limitações conhecidas / próximos passos
 
-- O parser foi validado com um extrato real da Cresol (21 lançamentos, todos
-  batendo) e um extrato real do Santander (488 lançamentos — a soma de todos
-  os valores fecha em zero, o que confere com o mecanismo de varredura
-  automática de saldo do Santander/Contamax).
+- O parser foi validado com extratos reais de: Cresol (21 lançamentos),
+  Santander (488), Itaú (58), Bradesco (527) e Sicredi nos dois formatos
+  (442 no formato antigo, 65 no novo) — em todos, a soma dos valores
+  reconcilia com a variação de saldo do próprio extrato.
 - Cada novo banco/modelo precisa ser calibrado e testado com um PDF de
   exemplo antes de confiar 100% no resultado.
+- **Cabeçalho às vezes é imagem, não texto.** O extrato do Bradesco, por
+  exemplo, tem o nome da empresa/CNPJ dentro de uma imagem (não dá pra achar
+  a posição pelas coordenadas do PDF). Nesse caso, gerar a prévia e rodar OCR
+  (`pytesseract`) só na imagem renderizada pra achar a caixa certa antes de
+  redigir.
 - **PDFs de imagem não funcionam.** Um extrato Sicoob enviado como teste veio
   sem nenhum texto selecionável — é uma imagem (print da tela do internet
   banking, não um PDF "de verdade"). Nesse caso não tem como ler posição de
