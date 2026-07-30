@@ -115,6 +115,34 @@ A coluna Valor sai já em formato contábil do Excel (moeda com sinal,
 `R$ 1.234,56` / `-R$ 1.234,56`), configurado em `js/app.js` na função
 `baixarExcel`.
 
+## Proteção do código (antes de monetizar)
+
+Por enquanto o projeto continua sem login/cobrança, mas com algumas camadas
+pra dificultar cópia — nenhuma delas é 100% à prova de alguém decidido (é
+código que roda no navegador, sempre vai ser possível inspecionar em algum
+nível), mas juntas evitam a cópia casual:
+
+- **`src/` é o código-fonte editável** (`pdfParser.js`, `app.js`) — é aqui
+  que você mexe quando for adicionar um banco novo ou corrigir algo.
+- **`js/` é gerado automaticamente** rodando `npm install && npm run build`
+  — o `build.js` minifica (`terser`) e depois ofusca (`javascript-obfuscator`:
+  nomes de variável viram hex, strings ficam codificadas, fluxo de controle
+  é embaralhado) o conteúdo de `src/` e grava em `js/`. **É o `js/` que o
+  `index.html` carrega e que o navegador do usuário final baixa.**
+- **`.vercelignore`** garante que `src/`, `build.js`, `package.json` e
+  `node_modules/` não sejam publicados no deploy — só o `js/` já ofuscado
+  vai pro ar.
+- **Deixe o repositório do GitHub como privado.** O `.vercelignore` evita
+  que o Vercel *sirva* o código-fonte, mas se o repositório for público
+  qualquer um ainda enxerga `src/` inteiro pelo próprio GitHub. Repositório
+  privado + `.vercelignore` juntos resolvem isso.
+- **`LICENSE`**: deixa explícito que não é código aberto — sem isso, o
+  default legal é ambíguo; com o arquivo, fica claro que cópia/redistribuição
+  não é permitida.
+
+**Sempre que mexer em algo dentro de `src/`, rode `npm run build` de novo
+antes de fazer o deploy** — senão o `js/` publicado fica desatualizado.
+
 ## Rodando localmente
 
 Como o `fetch()` dos arquivos de config precisa de um servidor (não abre
@@ -128,11 +156,15 @@ python3 -m http.server 8000
 
 ## Deploy na Vercel (gratuito)
 
-Sem necessidade de build ou variável de ambiente — é um site estático puro.
+Sem necessidade de build automático na Vercel (o `js/` já vai pronto no
+repositório) — só não esqueça de rodar `npm run build` localmente sempre que
+mexer em algo dentro de `src/`, **antes** de fazer o deploy (ver seção
+"Proteção do código" acima).
 
-- **Opção 1 (mais simples):** crie um repositório no GitHub com estes
-  arquivos, entre em vercel.com → "Add New Project" → importe o repositório.
-  A Vercel detecta que não há framework e serve os arquivos estáticos direto.
+- **Opção 1 (mais simples):** crie um repositório **privado** no GitHub com
+  estes arquivos, entre em vercel.com → "Add New Project" → importe o
+  repositório. A Vercel detecta que não há framework e serve os arquivos
+  estáticos direto.
 - **Opção 2 (sem GitHub):** instale a CLI (`npm i -g vercel`) e rode `vercel`
   dentro da pasta do projeto.
 

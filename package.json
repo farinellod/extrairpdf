@@ -1,0 +1,13 @@
+{
+  "name": "extrato-para-excel",
+  "version": "1.0.0",
+  "private": true,
+  "license": "UNLICENSED",
+  "scripts": {
+    "build": "node build.js"
+  },
+  "devDependencies": {
+    "javascript-obfuscator": "^5.5.0",
+    "terser": "^5.49.0"
+  }
+}
