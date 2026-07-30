@@ -1,0 +1,25 @@
+{
+  "banco": "Sicoob",
+  "modelo": "sicoob1",
+  "descricaoModelo": "Extrato de conta corrente Sicoob (Internet Banking, exportado do navegador) — PDF com texto selecionável; data sem ano (ano vem do período no topo), valor com sufixo C/D colado ao número",
+  "imagem": "images/sicoob1.png",
+  "marcadorInicio": "Data Documento Histórico Valor",
+  "marcadorFim": "RESUMO",
+  "linhasIgnorar": [
+    "Data Documento Histórico Valor",
+    "Sicoob | Internet Banking",
+    "SALDO DO DIA",
+    "SALDO ANTERIOR",
+    "SALDO BLOQUEADO ANTERIOR",
+    "sicoobnet"
+  ],
+  "colDataX": [30, 50],
+  "colDescricaoX": [130, 480],
+  "colValorX": [485, 540],
+  "formatoValor": "sufixoCD",
+  "moeda": "R$",
+  "separadorDecimal": ",",
+  "separadorMilhar": ".",
+  "formatoData": "DD/MM",
+  "toleranciaLinha": 3
+}

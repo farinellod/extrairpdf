@@ -102,5 +102,13 @@
     "config": "configs/santander3.json",
     "imagem": "images/santander3.png",
     "descricao": "Extrato Consolidado Inteligente PJ — colunas Créditos/Débitos separadas, testado (730 lançamentos, créditos e débitos batem exatamente com o resumo do extrato)"
+  },
+  {
+    "id": "sicoob1",
+    "banco": "Sicoob",
+    "modelo": "Modelo 1",
+    "config": "configs/sicoob1.json",
+    "imagem": "images/sicoob1.png",
+    "descricao": "Extrato de conta corrente Sicoob (Internet Banking, exportado do navegador) — testado (130 lançamentos, soma bate exatamente com a variação de saldo)"
   }
 ]
