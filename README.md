@@ -182,6 +182,14 @@ repositório) — só não esqueça de rodar `npm run build` localmente sempre q
 mexer em algo dentro de `src/`, **antes** de fazer o deploy (ver seção
 "Proteção do código" acima).
 
+O `vercel.json` na raiz (`{"buildCommand": false, "outputDirectory": "."}`)
+existe justamente pra isso: como agora tem um `package.json` com um script
+`build` (usado só localmente, pra gerar o `js/` ofuscado), sem esse arquivo a
+Vercel tenta rodar esse build sozinha e depois procura o resultado numa pasta
+`public/`, que não existe — daí o erro `No Output Directory named "public"
+found`. Com o `vercel.json`, ela pula o build e serve a raiz do projeto
+direto, como antes.
+
 - **Opção 1 (mais simples):** crie um repositório **privado** no GitHub com
   estes arquivos, entre em vercel.com → "Add New Project" → importe o
   repositório. A Vercel detecta que não há framework e serve os arquivos
