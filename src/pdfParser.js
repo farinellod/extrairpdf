@@ -112,7 +112,9 @@ function normalizeRanges(range) {
 function mergeValueTokens(sortedItems, ranges, moeda) {
   if (ranges.length === 0) return sortedItems;
   const isValorLike = (t) =>
-    t === '+' || t === '-' || t === 'C' || t === 'D' || t === moeda || /^[\d.,]+$/.test(t);
+    t === '+' || t === '-' || t === 'C' || t === 'D' || t === moeda ||
+    /^[\d.,]+$/.test(t) ||
+    /^[\d.,]+[CD]$/.test(t); // número e sufixo C/D colados sem espaço (ex: Sicoob: "166,60D")
 
   const result = [];
   let buffer = null;
