@@ -64,20 +64,41 @@ ordem de leitura. O `pdfParser.js`:
        crédito, no final do valor (Sicoob — ver observação abaixo)
      - `"colunaDebitoCredito"`: duas colunas separadas SEM sinal nenhum no
        texto — o sinal vem de qual coluna bateu. Precisa de `colDebitoX` e
-       `colCreditoX` em vez de `colValorX` (ex: Sicredi formato antigo)
+       `colCreditoX` em vez de `colValorX` (ex: Sicredi formato antigo). Um
+       "-" de sufixo decorativo na coluna de débito (ex: Santander Consolidado
+       Inteligente: `330,00-`) é aceito e descartado automaticamente — o
+       sinal de qualquer forma vem da coluna, não do sufixo
+     - `"semSinalContexto"`: o valor não tem sinal nem moeda (ex: `90,00`); o
+       sinal vem de uma linha-rótulo mais próxima ACIMA do lançamento,
+       configurada em `marcadoresSinal`: `[{"texto": "Total de saídas",
+       "sinal": -1}, {"texto": "Total de entradas", "sinal": 1}]` (ex:
+       Nubank — cada lançamento individual só mostra o número; o sinal está
+       na linha "Total de entradas/saídas" do grupo do dia, que também deve
+       entrar em `linhasIgnorar` pra não virar uma linha de lançamento)
    - `modoData`: `"porTransacao"` (padrão) pega a data mais próxima de cada
      lançamento; `"porGrupo"` usa a última data vista antes daquele
      lançamento, para extratos que só imprimem a data uma vez por dia (ex:
-     Bradesco)
+     Bradesco, Santander Consolidado Inteligente); `"contextoLinha"` é para
+     quando data (e opcionalmente o sinal) não vêm de nenhum token isolado,
+     e sim de uma linha inteira acima do lançamento (ex: Nubank: "03 JAN 2026
+     Total de saídas - 90,00" é uma linha só que dá contexto de data E sinal
+     pros lançamentos individuais logo abaixo)
    - `formatoData`: `"DD/MM/YYYY"` (padrão) ou `"DD/MM/AA"` (ano com 2 dígitos,
      ex: Stone) ou `"DD/MM"` (sem ano nenhum na linha do lançamento — o ano é
      descoberto a partir de uma linha de contexto em outro ponto da página,
      ex: C6, que só imprime o ano no cabeçalho de cada mês — "Janeiro 2026 (
-     01/01/2026 - 31/01/2026 )". Nesse modo o parser varre toda linha (mesmo
-     antes do `marcadorInicio` ou linhas que serão ignoradas) procurando um
-     `DD/MM/YYYY` solto e usa o ano da ocorrência mais recente acima de cada
-     lançamento. Dá pra trocar o padrão de busca com `anoContextoRegex` se
-     algum banco usar outro formato de cabeçalho)
+     01/01/2026 - 31/01/2026 )", ou Santander Consolidado Inteligente, que só
+     imprime "julho/2025" no topo de cada página. Nesse modo o parser varre
+     toda linha (mesmo antes do `marcadorInicio` ou linhas que serão
+     ignoradas) procurando um `DD/MM/YYYY` solto — ou o padrão que
+     `anoContextoRegex` disser — e usa o ano da ocorrência mais recente acima
+     de cada lançamento) ou `"DD MES YYYY"` (dia + mês abreviado em português
+     + ano numa linha só, ex: Nubank: "03 JAN 2026" — usar sempre junto de
+     `modoData: "contextoLinha"`)
+   - `ignorarTopoY`: descarta tudo acima dessa coordenada Y (pontos) em TODA
+     página, não só na primeira — útil quando o extrato repete um cabeçalho
+     com nome/CNPJ/conta do titular no topo de cada página (ex: Nubank), que
+     senão vazaria pra descrição do lançamento mais próximo
    - `moeda`, `separadorDecimal`, `separadorMilhar`
    - dá pra descobrir os valores de `colDataX`/`colValorX`/`colDescricaoX`
      abrindo o PDF e testando, ou me mandando o PDF de exemplo pra eu calibrar
@@ -173,10 +194,12 @@ mexer em algo dentro de `src/`, **antes** de fazer o deploy (ver seção
 - O parser foi validado com extratos reais de: Cresol (21 lançamentos),
   Santander (488), Itaú (58), Bradesco (527), Sicredi nos dois formatos
   (442 no formato antigo, 65 no novo), Caixa (97), Stone (400), Santander
-  modelo 2 (73) e C6 Bank (919) — em todos, a soma dos valores reconcilia
-  com a variação de saldo do próprio extrato (no C6, entradas/saídas batem
-  exatamente com os totais que o próprio extrato imprime em cada um dos 6
-  cabeçalhos de mês).
+  modelo 2 (73), C6 Bank (919), Nubank (55) e Santander modelo 3/Consolidado
+  Inteligente (730) — em todos, a soma dos valores reconcilia com a variação
+  de saldo do próprio extrato (no C6, entradas/saídas batem exatamente com os
+  totais que o próprio extrato imprime em cada um dos 6 cabeçalhos de mês; no
+  Nubank, com o resumo do período; no Santander modelo 3, créditos e débitos
+  batem exatamente com o resumo).
 - **C6 tem duas colunas de data** (Data lançamento / Data contábil) e nenhuma
   das duas traz o ano — só o dia/mês. O config `c61.json` usa a coluna "Data
   lançamento" (a mais à esquerda) e descobre o ano pelo cabeçalho de cada mês
