@@ -110,5 +110,13 @@
     "config": "configs/sicoob1.json",
     "imagem": "images/sicoob1.png",
     "descricao": "Extrato de conta corrente Sicoob (Internet Banking, exportado do navegador) — testado (130 lançamentos, soma bate exatamente com a variação de saldo)"
+  },
+  {
+    "id": "itau2",
+    "banco": "Itaú",
+    "modelo": "Modelo 2 (PJ/empresas)",
+    "config": "configs/itau2.json",
+    "imagem": "images/itau2.png",
+    "descricao": "Extrato conta corrente Itaú PJ/empresas — colunas Lançamentos/Razão Social/CNPJ-CPF separadas, testado (1.864 lançamentos, saldo bate exatamente em todos os 103 dias do período)"
   }
 ]

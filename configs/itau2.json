@@ -1,0 +1,18 @@
+{
+  "banco": "Itaú",
+  "modelo": "itau2",
+  "descricaoModelo": "Extrato conta corrente Itaú PJ/empresas (colunas Lançamentos/Razão Social/CNPJ-CPF separadas) — testado (1.864 lançamentos, saldo bate exatamente em todos os 103 dias do período)",
+  "imagem": "images/itau2.png",
+  "marcadorInicio": "Valor (R$) Saldo (R$)",
+  "marcadorFim": "aviso:",
+  "linhasIgnorar": ["SALDO TOTAL DISPONÍVEL DIA", "SALDO ANTERIOR"],
+  "colDataX": [25, 90],
+  "colDescricaoX": [85, 435],
+  "colValorX": [440, 515],
+  "moeda": "",
+  "formatoValor": "sinalOpcional",
+  "separadorDecimal": ",",
+  "separadorMilhar": ".",
+  "formatoData": "DD/MM/YYYY",
+  "toleranciaLinha": 3
+}
