@@ -61,7 +61,9 @@ ordem de leitura. O `pdfParser.js`:
        uma coluna (ex: Bradesco, que tem Crédito e Débito em colunas
        separadas mas cada uma já traz o sinal certo no texto)
      - `"sufixoCD"`: `R$ 1.800,00D` / `R$ 181,65C` — D de débito, C de
-       crédito, no final do valor (Sicoob — ver observação abaixo)
+       crédito, no final do valor (Sicoob, validado). O parser junta o
+       número e o C/D mesmo quando vêm colados como um token só, sem espaço
+       (ex: `166,60D`)
      - `"colunaDebitoCredito"`: duas colunas separadas SEM sinal nenhum no
        texto — o sinal vem de qual coluna bateu. Precisa de `colDebitoX` e
        `colCreditoX` em vez de `colValorX` (ex: Sicredi formato antigo). Um
@@ -202,12 +204,13 @@ direto, como antes.
 - O parser foi validado com extratos reais de: Cresol (21 lançamentos),
   Santander (488), Itaú (58), Bradesco (527), Sicredi nos dois formatos
   (442 no formato antigo, 65 no novo), Caixa (97), Stone (400), Santander
-  modelo 2 (73), C6 Bank (919), Nubank (55) e Santander modelo 3/Consolidado
-  Inteligente (730) — em todos, a soma dos valores reconcilia com a variação
-  de saldo do próprio extrato (no C6, entradas/saídas batem exatamente com os
-  totais que o próprio extrato imprime em cada um dos 6 cabeçalhos de mês; no
-  Nubank, com o resumo do período; no Santander modelo 3, créditos e débitos
-  batem exatamente com o resumo).
+  modelo 2 (73), C6 Bank (919), Nubank (55), Santander modelo 3/Consolidado
+  Inteligente (730) e Sicoob (130) — em todos, a soma dos valores reconcilia
+  com a variação de saldo do próprio extrato (no C6, entradas/saídas batem
+  exatamente com os totais que o próprio extrato imprime em cada um dos 6
+  cabeçalhos de mês; no Nubank, com o resumo do período; no Santander modelo
+  3, créditos e débitos batem exatamente com o resumo; no Sicoob, a soma bate
+  exatamente com a variação de saldo do período).
 - **C6 tem duas colunas de data** (Data lançamento / Data contábil) e nenhuma
   das duas traz o ano — só o dia/mês. O config `c61.json` usa a coluna "Data
   lançamento" (a mais à esquerda) e descobre o ano pelo cabeçalho de cada mês
@@ -221,11 +224,14 @@ direto, como antes.
   a posição pelas coordenadas do PDF). Nesse caso, gerar a prévia e rodar OCR
   (`pytesseract`) só na imagem renderizada pra achar a caixa certa antes de
   redigir.
-- **PDFs de imagem não funcionam.** Um extrato Sicoob enviado como teste veio
-  sem nenhum texto selecionável — é uma imagem (print da tela do internet
-  banking, não um PDF "de verdade"). Nesse caso não tem como ler posição de
-  texto, e OCR seria necessário — só que OCR é bem menos confiável pra
-  números financeiros e sairia do escopo "roda rápido no navegador". Antes de
-  ir pra esse caminho, vale checar se o Sicoob oferece algum outro tipo de
-  exportação (extrato em outro layout, CSV ou OFX) na área de internet
-  banking — costuma ser bem mais confiável que OCR.
+- **PDFs de imagem não funcionam.** Um primeiro extrato Sicoob enviado como
+  teste veio sem nenhum texto selecionável — era uma imagem (print da tela do
+  internet banking, não um PDF "de verdade"). Nesse caso não tem como ler
+  posição de texto, e OCR seria necessário — só que OCR é bem menos confiável
+  pra números financeiros e sairia do escopo "roda rápido no navegador". Um
+  segundo extrato Sicoob, exportado como PDF de verdade pelo navegador
+  (Internet Banking → imprimir/salvar como PDF), veio com texto selecionável
+  normal e foi validado (`sicoob1.json`, 130 lançamentos, soma bate
+  exatamente com a variação de saldo) — então, se o Sicoob não oferecer
+  exportação direta em PDF, vale tentar "imprimir" a página do extrato como
+  PDF pelo navegador em vez de tirar print de tela.
