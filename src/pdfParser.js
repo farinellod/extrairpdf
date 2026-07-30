@@ -1,6 +1,389 @@
-/*!
- * Extrato → Excel — © 2026 Diego. Todos os direitos reservados.
- * Uso, cópia ou redistribuição deste código sem autorização não são permitidos.
- * Build gerado automaticamente — código-fonte legível não é distribuído.
- */
-function _0x5f4c(_0x309af7,_0x597954){_0x309af7=_0x309af7-0x1c7;const _0x59245d=_0x164a();let _0xd3350d=_0x59245d[_0x309af7];if(_0x5f4c['jTDhKj']===undefined){var _0x17b4b3=function(_0x5429ea){const _0x18ac90='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+/=';let _0x5a107f='',_0x346265='',_0x5479d7=_0x5a107f+_0x17b4b3,_0x2400ce=(''+function(){return 0x0;})['indexOf']('\x0a')!==-0x1;for(let _0x2e17c9=0x0,_0x1d2755,_0x14acb6,_0x4291b0=0x0;_0x14acb6=_0x5429ea['charAt'](_0x4291b0++);~_0x14acb6&&(_0x1d2755=_0x2e17c9%0x4?_0x1d2755*0x40+_0x14acb6:_0x14acb6,_0x2e17c9++%0x4)?_0x5a107f+=_0x2400ce||_0x5479d7['charCodeAt'](_0x4291b0+0xa)-0xa!==0x0?String['fromCharCode'](0xff&_0x1d2755>>(-0x2*_0x2e17c9&0x6)):_0x2e17c9:0x0){_0x14acb6=_0x18ac90['indexOf'](_0x14acb6);}for(let _0x468e8d=0x0,_0x57e3d3=_0x5a107f['length'];_0x468e8d<_0x57e3d3;_0x468e8d++){_0x346265+='%'+('00'+_0x5a107f['charCodeAt'](_0x468e8d)['toString'](0x10))['slice'](-0x2);}return decodeURIComponent(_0x346265);};_0x5f4c['fZggPz']=_0x17b4b3,_0x5f4c['MeKlgF']={},_0x5f4c['jTDhKj']=!![];}const _0x164af4=_0x59245d[0x0],_0x5f4cbb=_0x309af7+_0x164af4,_0x2916f2=_0x5f4c['MeKlgF'][_0x5f4cbb];if(!_0x2916f2){const _0x2b091e=function(_0x3534b2){this['TCzAYE']=_0x3534b2,this['fETsuv']=[0x1,0x0,0x0],this['sEmcZe']=function(){return'newState';},this['MKFXjO']='\x5c\x77\x2b\x20\x2a\x5c\x28\x5c\x29\x20\x2a\x7b\x5c\x77\x2b\x20\x2a',this['acqujX']='\x5b\x27\x7c\x22\x5d\x2e\x2b\x5b\x27\x7c\x22\x5d\x3b\x3f\x20\x2a\x7d';};_0x2b091e['prototype']['BItgXK']=function(){const _0x18141d=new RegExp(this['MKFXjO']+this['acqujX']),_0x447bcb=_0x18141d['test'](this['sEmcZe']['toString']())?--this['fETsuv'][0x1]:--this['fETsuv'][0x0];return this['DJOrWl'](_0x447bcb);},_0x2b091e['prototype']['DJOrWl']=function(_0xb1ac9c){if(!Boolean(~_0xb1ac9c))return _0xb1ac9c;return this['kmMquh'](this['TCzAYE']);},_0x2b091e['prototype']['kmMquh']=function(_0x462a25){for(let _0x4233f5=0x0,_0x56b984=this['fETsuv']['length'];_0x4233f5<_0x56b984;_0x4233f5++){this['fETsuv']['push'](Math['round'](Math['random']())),_0x56b984=this['fETsuv']['length'];}return _0x462a25(this['fETsuv'][0x0]);},(''+function(){return 0x0;})['indexOf']('\x0a')===-0x1&&new _0x2b091e(_0x5f4c)['BItgXK'](),_0xd3350d=_0x5f4c['fZggPz'](_0xd3350d),_0x5f4c['MeKlgF'][_0x5f4cbb]=_0xd3350d;}else _0xd3350d=_0x2916f2;return _0xd3350d;}const _0x51ff80=_0x5f4c;(function(_0x1dd7f0,_0x39a910){const _0x495488=_0x5f4c,_0x53acbc=_0x1dd7f0();while(!![]){try{const _0x7adcf6=parseInt(_0x495488(0x22b))/0x1*(-parseInt(_0x495488(0x21e))/0x2)+-parseInt(_0x495488(0x214))/0x3*(parseInt(_0x495488(0x21d))/0x4)+-parseInt(_0x495488(0x253))/0x5+-parseInt(_0x495488(0x263))/0x6*(-parseInt(_0x495488(0x1fa))/0x7)+parseInt(_0x495488(0x1f0))/0x8+parseInt(_0x495488(0x259))/0x9*(-parseInt(_0x495488(0x23b))/0xa)+-parseInt(_0x495488(0x25d))/0xb*(-parseInt(_0x495488(0x20f))/0xc);if(_0x7adcf6===_0x39a910)break;else _0x53acbc['push'](_0x53acbc['shift']());}catch(_0x14a5e9){_0x53acbc['push'](_0x53acbc['shift']());}}}(_0x164a,0x355b1));const _0x17b4b3=(function(){let _0x26138c=!![];return function(_0x1a6bed,_0x63f6dc){const _0xac613e=_0x26138c?function(){const _0x387b52=_0x5f4c;if(_0x63f6dc){const _0x2d3e7f=_0x63f6dc[_0x387b52(0x1fd)](_0x1a6bed,arguments);return _0x63f6dc=null,_0x2d3e7f;}}:function(){};return _0x26138c=![],_0xac613e;};}()),_0xd3350d=_0x17b4b3(this,function(){const _0x549630=_0x5f4c,_0x4a0c29={'ZYLwN':'(((.+)+)+)+$'};if(_0xd3350d[_0x549630(0x261)]()[_0x549630(0x1e8)]()[_0x549630(0x1d9)]('\x0a')!==-0x1)return;return _0xd3350d[_0x549630(0x1e8)]()['search'](_0x4a0c29['ZYLwN'])[_0x549630(0x1e8)]()['constructor'](_0xd3350d)[_0x549630(0x20e)](_0x4a0c29['ZYLwN']);});_0xd3350d();function clean(_0x2e67d1){const _0x3f8b48=_0x5f4c,_0x284c3b={'ySjAC':function(_0xfb60d3,_0x5dba36){return _0xfb60d3||_0x5dba36;}};return _0x284c3b[_0x3f8b48(0x221)](_0x2e67d1,'')['replace'](/\s+/g,'\x20')['trim']();}function collapse(_0x1d9299){const _0x4a7d8e=_0x5f4c,_0x4c9e5a={'pblsm':function(_0x48a7b3,_0x5fae58){return _0x48a7b3||_0x5fae58;}};return _0x4c9e5a[_0x4a7d8e(0x1ce)](_0x1d9299,'')['replace'](/\s+/g,'');}function escapeRegex(_0x31895e){const _0x33afd8=_0x5f4c,_0x10bf97={'ctLYq':function(_0x151b4d,_0xe8e0c2){return _0x151b4d||_0xe8e0c2;},'bwzFM':_0x33afd8(0x1cf)};return _0x10bf97[_0x33afd8(0x211)](_0x31895e,'')['replace'](/[.*+?^${}()|[\]\\]/g,_0x10bf97['bwzFM']);}function parseNumero(_0x4a73a9,_0x30d26c){const _0x4b1b1d=_0x5f4c,_0x3c3726=_0x30d26c['separadorMilhar']||'.',_0x259cd3=_0x30d26c[_0x4b1b1d(0x220)]||',';return _0x4a73a9=(_0x4a73a9=_0x4a73a9[_0x4b1b1d(0x1f2)](_0x3c3726)[_0x4b1b1d(0x207)](''))[_0x4b1b1d(0x25b)](_0x259cd3,'.'),parseFloat(_0x4a73a9);}function _0x164a(){const _0x2a2014=['zM9YrwfJAa','vvjRCMy','Bw9Lzge','wgfKEwe','C3rHCNrZv2L0Aa','zMX6wue','vLjntum','wu5iqK4','otiYmJeWvuH0qwnS','v01AvhK','v1vVBKK','yKfrDMq','BwfYy2fKB3jgAw0','C2LUywXpCgnPB25HBa','mtmXmZCZsuzorhzj','y29SDw5HrgvIAxrVq3jLzgL0BW','CMvWBgfJzq','C3zjC1O','mtuXndqWm01UrMzuqW','Dw5KzwzPBMvK','zMLUzeLUzgv4','AKfpwKC','yMLUza','q0jore8','mtjmqwfYChe','x3rVCa','ugTVBMG','CMfUz2vjzhG','BNnKuhe','rxH0CMf0B1bHCNnLCG','reqGtuvtifLzwvK','sMncv24','CNvqqMu','CgjSC20','xcqM','Cgv6Bee','vLjyqvC','BgLUAgfZswDUB3jHCG','BuzPBeq','yM9PC3K','tNjqC1C','zMLSDgvY','Axn3wfK','C29YDa','Aw5KzxHpzG','DgvZDa','ChvZAa','Bw9KB0rHDge','BuzPAwu','AwDUB3jHCLrVCg9z','C29Tzq','Cg9Yr3j1Cg8','C3nRDMe','Dgv4Da','AxnbCNjHEq','Bwf0y2G','ELnbt1e','v1bPDu4','vwjsA0S','Dg9tDhjPBMC','C3vMAxHVq0q','q0DlEK0','Bw1Kuum','z2v0','DfDIsxe','zgX4yKq','zM9YBwf0B1zHBg9Y','nJeZntm2z0rrB2fI','r0fcrwS','C3bSAxq','BwfYy2fKB3jLC1nPBMfS','BxvrC2K','rw1pu3m','AxrLBxm','u1zOvNC','zM9YBwf0B0rHDge','CgfKu3rHCNq','mtq5nJq3ne1HzKLwta','xhmQw1XKlIXDkYq','CNbbDNy','yxbWBhK','C2LUywW','zgf0yq','C0jAuLC','Dg9SzxjHBMnPyuXPBMHH','r1bevMG','AgfZ','uerxqLK','rhvOEei','v2zjCvC','AM9PBG','Cg9YvhjHBNnHy2fV','z3vtu2O','wfzizuK','zxHWB3j0CW','AxP3B1y','yw5V','C2vHCMnO','mZzvuwnJy2K','ywjZ','y3rmwxe','tunzENa','EvbUDgG','mtHWy2XmEMS','wvLzwq','vuTlywG','reqVtu0VwvLzwq','yw5Vq29UDgv4Dg9szwDLEa','Aw5JBhvKzxm','Bwn5yMu','tg9zAe8','C2XPy2u','mtK2mdKYrw96Agv4','mNfXD0zOwq','DgrxzgK','C2vWyxjHzg9YrgvJAw1HBa','EvnQqum','reqVtu0','rwjtDfK','ywrK','x3rPCg8','DMfSB3i','qxftwhG','y29Uy2f0','C2vTu2LUywXdB250zxH0BW','u252zw4','mJa1ntuZtefLAuPQ','Dg9vChbLCKnHC2u','Def1rK4','wxz2uNy','y29SrgvIAxrVwa','rNnQEg4','zMLUza','y29Srgf0yvG','shLMu3G','xhmQ','x3nPBMfS','y29Sq3jLzgL0B1G','B2jLru0','Eg96y1K','Euvmrg4','BwfW','mtb2BNjxvLO','z1DHBKu','Dg9W','BgvUz3rO','s3rRshm','D0DPDgK','y29SvMfSB3jy','CMnxwe4','quTcru0','Dxvjvu8','B0j0q2C','q1LRDKC','rKv0zem','zuHHBK8','qLbvD0e','DhjPBq'];_0x164a=function(){return _0x2a2014;};return _0x164a();}function inRange(_0x1264fa,_0x27c68f){const _0x9fa6e6=_0x5f4c,_0x530339={'dlxbD':function(_0x3e8f4d,_0x15f035){return _0x3e8f4d>=_0x15f035;}};return!_0x27c68f||(Array[_0x9fa6e6(0x1e3)](_0x27c68f[0x0])?_0x27c68f[_0x9fa6e6(0x1df)](_0x13a114=>_0x1264fa>=_0x13a114[0x0]&&_0x1264fa<=_0x13a114[0x1]):_0x530339[_0x9fa6e6(0x1ee)](_0x1264fa,_0x27c68f[0x0])&&_0x1264fa<=_0x27c68f[0x1]);}function includesCollapsed(_0x3fb7f7,_0x3da752){const _0x2b93a6=_0x5f4c;return collapse(_0x3fb7f7)[_0x2b93a6(0x219)](collapse(_0x3da752));}function getValorMatcher(_0x4384c8){const _0xbb8bff=_0x5f4c,_0x3a0313={'obeEM':function(_0x382bca,_0x178eb3){return _0x382bca*_0x178eb3;},'Snven':function(_0x847442,_0x339fe2,_0x5d0e14){return _0x847442(_0x339fe2,_0x5d0e14);},'GPDVh':function(_0x41a2fc,_0x7e2515){return _0x41a2fc+_0x7e2515;},'VRXAW':_0xbb8bff(0x234),'sskva':function(_0x39e74,_0x41dcae){return _0x39e74*_0x41dcae;},'Xadya':function(_0x1f8b44,_0x24d8bf){return _0x1f8b44+_0x24d8bf;},'tdWdi':'prefixoSinal','gWanE':function(_0x1ee437,_0x3cb53e){return _0x1ee437===_0x3cb53e;},'xMufD':_0xbb8bff(0x258),'aHeXV':function(_0x5e08c1,_0x24eaeb){return _0x5e08c1===_0x24eaeb;},'yPnth':function(_0x39bc77,_0x4007e1){return _0x39bc77===_0x4007e1;},'pezlA':_0xbb8bff(0x1e9),'CcIqg':function(_0x39cff7,_0x10711a){return _0x39cff7+_0x10711a;},'GUnjj':'^[+-]?\x5cs*','DuhxB':_0xbb8bff(0x1fb)},_0x4a391e=escapeRegex(_0x4384c8[_0xbb8bff(0x24d)]||''),_0x1b564a=_0x4384c8['formatoValor']||_0x3a0313[_0xbb8bff(0x21f)];if(_0x3a0313[_0xbb8bff(0x23c)](_0x3a0313['xMufD'],_0x1b564a))return{'regex':/^-?[\d.,]+$/,'parse':_0x2bb862=>{const _0x368ae4=_0xbb8bff;let _0x3b029d=_0x2bb862[_0x368ae4(0x24a)](),_0x4f88d8=0x1;return _0x3b029d[_0x368ae4(0x24f)]('-')&&(_0x4f88d8=-0x1,_0x3b029d=_0x3b029d[_0x368ae4(0x21c)](0x1)['trim']()),_0x3a0313[_0x368ae4(0x237)](_0x4f88d8,_0x3a0313[_0x368ae4(0x22a)](parseNumero,_0x3b029d,_0x4384c8));}};if(_0x3a0313['aHeXV']('semSinalContexto',_0x1b564a))return{'regex':/^[\d.,]+$/,'parse':_0x3a304d=>parseNumero(_0x3a304d[_0xbb8bff(0x24a)](),_0x4384c8)};if(_0x3a0313[_0xbb8bff(0x213)](_0x3a0313[_0xbb8bff(0x1d0)],_0x1b564a))return{'regex':new RegExp(_0x3a0313[_0xbb8bff(0x24e)]('^',_0x4a391e)+'\x5cs*[\x5cd.,]+\x5cs*[CD]$'),'parse':_0x2c899a=>{const _0x46e281=_0xbb8bff;let _0x212e33=_0x2c899a['trim']();const _0x56b9b4=/D$/['test'](_0x212e33)?-0x1:0x1;return _0x212e33=_0x212e33[_0x46e281(0x21c)](0x0,-0x1)[_0x46e281(0x24a)](),_0x212e33=_0x212e33[_0x46e281(0x25b)](new RegExp(_0x3a0313[_0x46e281(0x202)]('^',_0x4a391e)+_0x3a0313['VRXAW']),'')[_0x46e281(0x24a)](),_0x3a0313[_0x46e281(0x1e1)](_0x56b9b4,parseNumero(_0x212e33,_0x4384c8));}};return{'regex':new RegExp(_0x3a0313['Xadya'](_0x3a0313['CcIqg'](_0x3a0313['GUnjj'],_0x4a391e),_0x3a0313[_0xbb8bff(0x205)])),'parse':_0x5a0f4f=>{const _0x44ce08=_0xbb8bff;let _0x1d6f4a=_0x5a0f4f[_0x44ce08(0x24a)](),_0x3a8aa2=0x1;return _0x1d6f4a['startsWith']('-')?(_0x3a8aa2=-0x1,_0x1d6f4a=_0x1d6f4a[_0x44ce08(0x21c)](0x1)[_0x44ce08(0x24a)]()):_0x1d6f4a[_0x44ce08(0x24f)]('+')&&(_0x1d6f4a=_0x1d6f4a[_0x44ce08(0x21c)](0x1)['trim']()),_0x1d6f4a=_0x1d6f4a[_0x44ce08(0x25b)](new RegExp(_0x3a0313[_0x44ce08(0x24e)](_0x3a0313['GPDVh']('^',_0x4a391e),_0x3a0313[_0x44ce08(0x1d1)])),'')[_0x44ce08(0x24a)](),_0x3a0313[_0x44ce08(0x237)](_0x3a8aa2,parseNumero(_0x1d6f4a,_0x4384c8));}};}function normalizeRanges(_0x4e9a73){const _0x1281b0=_0x5f4c;return _0x4e9a73?Array[_0x1281b0(0x1e3)](_0x4e9a73[0x0])?_0x4e9a73:[_0x4e9a73]:[];}function mergeValueTokens(_0x86c27e,_0x47405b,_0x1bc3d7){const _0x3457d5=_0x5f4c,_0x56599e={'XVHeI':function(_0x57da40,_0x41f9a2){return _0x57da40||_0x41f9a2;},'mxGPO':function(_0x2acfbb,_0x435eeb){return _0x2acfbb===_0x435eeb;},'izwoV':function(_0xcb2aa6,_0x3c97e6){return _0xcb2aa6!==_0x3c97e6;},'AqSXx':_0x3457d5(0x204),'EvitB':function(_0x395378,_0x375e05){return _0x395378>=_0x375e05;},'bAQvd':function(_0x3ad23e,_0x2078e0){return _0x3ad23e(_0x2078e0);},'xozcY':function(_0x1bf5fb,_0x59c727){return _0x1bf5fb(_0x59c727);},'yELDn':function(_0x55fe52,_0x372e10){return _0x55fe52(_0x372e10);},'gIIdo':function(_0x1b4cfb,_0x38fe2d){return _0x1b4cfb(_0x38fe2d);}};if(_0x56599e['mxGPO'](0x0,_0x47405b[_0x3457d5(0x23e)]))return _0x86c27e;const _0x1c6200=_0x33d2be=>'+'===_0x33d2be||'-'===_0x33d2be||'C'===_0x33d2be||'D'===_0x33d2be||_0x33d2be===_0x1bc3d7||/^[\d.,]+$/[_0x3457d5(0x1da)](_0x33d2be),_0x4519aa=[];let _0x5de157=null;for(const _0x31951a of _0x86c27e){if(_0x56599e[_0x3457d5(0x20c)](_0x3457d5(0x209),_0x56599e[_0x3457d5(0x227)])){const _0x1e8014=_0x47405b['findIndex'](_0x32e3ab=>_0x31951a['x0']>=_0x32e3ab[0x0]&&_0x31951a['x0']<=_0x32e3ab[0x1]);_0x56599e['EvitB'](_0x1e8014,0x0)&&_0x56599e[_0x3457d5(0x256)](_0x1c6200,_0x31951a['text'])?_0x5de157&&_0x5de157[_0x3457d5(0x1c8)]===_0x1e8014?_0x5de157[_0x3457d5(0x1f6)]['push'](_0x31951a):(_0x5de157&&_0x4519aa[_0x3457d5(0x1db)](_0x56599e[_0x3457d5(0x238)](flushBuffer,_0x5de157)),_0x5de157={'rangeIdx':_0x1e8014,'items':[_0x31951a]}):(_0x5de157&&(_0x4519aa[_0x3457d5(0x1db)](_0x56599e[_0x3457d5(0x239)](flushBuffer,_0x5de157)),_0x5de157=null),_0x4519aa[_0x3457d5(0x1db)](_0x31951a));}else return KWvFGP[_0x3457d5(0x20a)](_0x2b091e,'')[_0x3457d5(0x25b)](/\s+/g,'\x20')[_0x3457d5(0x24a)]();}return _0x5de157&&_0x4519aa[_0x3457d5(0x1db)](_0x56599e['gIIdo'](flushBuffer,_0x5de157)),_0x4519aa;}function flushBuffer(_0x49b944){const _0x21155c=_0x5f4c,_0x1efde7=_0x49b944['items'];return{'text':_0x1efde7[_0x21155c(0x23a)](_0x580c86=>_0x580c86['text'])['join']('\x20'),'x0':_0x1efde7[0x0]['x0'],'top':_0x1efde7[0x0][_0x21155c(0x23d)]};}function parseTransactions(_0x154457,_0x5a1ccc){const _0x1cbb5c=_0x5f4c,_0x2428aa={'eHanO':function(_0x3738ac,_0x39e5fb){return _0x3738ac<=_0x39e5fb;},'fokfX':function(_0x3d7ba5,_0x50c260){return _0x3d7ba5>_0x50c260;},'GZByp':function(_0x43ff98,_0x2e7dde){return _0x43ff98(_0x2e7dde);},'HuBHV':function(_0x144130,_0x57c208){return _0x144130(_0x57c208);},'SVhVw':function(_0x152ed4,_0x1fb087){return _0x152ed4!==_0x1fb087;},'mcybe':_0x1cbb5c(0x244),'oBtCg':_0x1cbb5c(0x240),'mmdQC':function(_0x1cc15e,_0x387695){return _0x1cc15e*_0x387695;},'IlpTC':function(_0x25d8ea,_0x4e1432){return _0x25d8ea!==_0x4e1432;},'Pkonh':_0x1cbb5c(0x230),'tAuFN':function(_0x3d3ffd,_0x44e01f){return _0x3d3ffd!==_0x44e01f;},'flzYA':_0x1cbb5c(0x206),'GdkXL':_0x1cbb5c(0x223),'YvvRv':function(_0x21feb0,_0x3974a7,_0x916b22){return _0x21feb0(_0x3974a7,_0x916b22);},'rcWXN':function(_0x21184c,_0x56423b,_0x103485){return _0x21184c(_0x56423b,_0x103485);},'CYkvG':function(_0x44fd5d,_0x31e292,_0x21b24f){return _0x44fd5d(_0x31e292,_0x21b24f);},'GABEk':function(_0xff3fcf,_0x3fb3b4,_0x3860b2,_0x4af2dc){return _0xff3fcf(_0x3fb3b4,_0x3860b2,_0x4af2dc);},'MCYzp':function(_0x13e043,_0x3a2684,_0x2be548){return _0x13e043(_0x3a2684,_0x2be548);},'WMZTy':function(_0x390185,_0x35e012,_0x17360a){return _0x390185(_0x35e012,_0x17360a);},'HyfSx':_0x1cbb5c(0x200),'VRMMC':function(_0x1e8e6b,_0x220ea5){return _0x1e8e6b>=_0x220ea5;},'muQsi':function(_0x4ac050,_0x33b78d){return _0x4ac050*_0x33b78d;},'LoYhO':function(_0x76cc29,_0x2e1236){return _0x76cc29(_0x2e1236);},'JcBWn':function(_0x250e0a,_0x3ce203){return _0x250e0a>=_0x3ce203;},'URkrf':function(_0x15dabd,_0xdb18ed){return _0x15dabd===_0xdb18ed;},'jAOZG':function(_0x167d73,_0x4aefc4){return _0x167d73>=_0x4aefc4;},'CBNDO':function(_0x595df3,_0x195dd2){return _0x595df3(_0x195dd2);},'EmOSs':function(_0x493cc0,_0x412cc7){return _0x493cc0(_0x412cc7);},'BPUwA':_0x1cbb5c(0x247),'YNHBN':_0x1cbb5c(0x1d5),'UbRkK':function(_0x2658ed,_0x31b823){return _0x2658ed===_0x31b823;},'WUonI':function(_0x7551b8,_0x378285){return _0x7551b8-_0x378285;},'WPiuN':function(_0x119ad8,_0x491127){return _0x119ad8-_0x491127;},'JqAIT':function(_0x49dbab,_0x1a6fc4){return _0x49dbab!==_0x1a6fc4;},'mFiie':_0x1cbb5c(0x216),'zSAOQ':function(_0x42d70f,_0x4b67b4){return _0x42d70f(_0x4b67b4);},'svIsZ':_0x1cbb5c(0x217),'ypjnO':_0x1cbb5c(0x222),'KtkHs':_0x1cbb5c(0x1cb),'pEiWL':_0x1cbb5c(0x215),'TNSWb':_0x1cbb5c(0x229),'mFilD':_0x1cbb5c(0x25a),'CGKzM':function(_0x593806,_0x4572f4){return _0x593806(_0x4572f4);},'NrHrh':_0x1cbb5c(0x1e0),'iswXY':_0x1cbb5c(0x1ff),'nsdPq':function(_0x27dcf4,_0x1c7a8b){return _0x27dcf4*_0x1c7a8b;},'ruPBe':function(_0x5735b9,_0x2c32b4){return _0x5735b9(_0x2c32b4);},'bYNXm':function(_0x3bc8d6,_0x1be479){return _0x3bc8d6(_0x1be479);}},_0x620c9f=(_0x5a1ccc[_0x1cbb5c(0x1f8)]||_0x2428aa[_0x1cbb5c(0x25c)])[_0x1cbb5c(0x22c)](),_0x2f7423=_0x2428aa['ypjnO']===_0x620c9f,_0x1c8436=_0x2428aa['UbRkK'](_0x2428aa[_0x1cbb5c(0x23f)],_0x620c9f),_0x125c73={'JAN':'01','FEV':'02','MAR':'03','ABR':'04','MAI':'05','JUN':'06','JUL':'07','AGO':'08','SET':'09','OUT':'10','NOV':'11','DEZ':'12'},_0x3f6029=/(\d{1,2})\s+(JAN|FEV|MAR|ABR|MAI|JUN|JUL|AGO|SET|OUT|NOV|DEZ)\s+(\d{4})/i,_0x16fa38=_0x1c8436?null:_0x2f7423?/^\d{2}\/\d{2}$/:_0x620c9f[_0x1cbb5c(0x219)](_0x2428aa['pEiWL'])?/^\d{2}\/\d{2}\/\d{4}$/:/^\d{2}\/\d{2}\/\d{2}$/,_0x3d4dad=_0x5a1ccc[_0x1cbb5c(0x218)]?new RegExp(_0x5a1ccc[_0x1cbb5c(0x218)]):/\d{2}\/\d{2}\/(\d{4})/,_0x114026=_0x2428aa['TNSWb']===_0x5a1ccc[_0x1cbb5c(0x1ef)],_0x106e2b=_0x5a1ccc[_0x1cbb5c(0x1f3)]||[],_0x47b5cd=_0x5a1ccc[_0x1cbb5c(0x1d2)]||[],_0x48a16b=_0x5a1ccc[_0x1cbb5c(0x201)]||0x3,_0x164164=_0x2428aa[_0x1cbb5c(0x1d3)]===_0x5a1ccc[_0x1cbb5c(0x1ef)],{regex:_0x2a418e,parse:_0x1a922a}=_0x164164?{'regex':/^[\d.,]+-?$/,'parse':_0x3373dd=>parseNumero(_0x3373dd[_0x1cbb5c(0x24a)]()[_0x1cbb5c(0x25b)](/-$/,''),_0x5a1ccc)}:_0x2428aa[_0x1cbb5c(0x1ea)](getValorMatcher,_0x5a1ccc),_0x2dad10=_0x164164?normalizeRanges(_0x5a1ccc[_0x1cbb5c(0x22f)])[_0x1cbb5c(0x228)](normalizeRanges(_0x5a1ccc['colCreditoX'])):_0x2428aa[_0x1cbb5c(0x21b)](normalizeRanges,_0x5a1ccc[_0x1cbb5c(0x241)]);let _0x210a8f=[],_0x348acf=[],_0x373f25=[],_0x3052e2=[],_0x4ae00f=!0x1,_0x518eab=!0x1;function _0x3865dd(_0x371a1d){const _0x473210=_0x1cbb5c;let _0x166a27=null;for(const _0x4176a0 of _0x348acf)_0x2428aa[_0x473210(0x248)](_0x4176a0[_0x473210(0x23d)],_0x371a1d)&&(!_0x166a27||_0x2428aa['fokfX'](_0x4176a0['top'],_0x166a27[_0x473210(0x23d)]))&&(_0x166a27=_0x4176a0);return(_0x166a27||_0x348acf[0x0]||{})[_0x473210(0x20d)]||'';}function _0x582cd7(_0x10126f,_0x5aa388){const _0x265ae9=_0x1cbb5c;let _0x320374=null;for(const _0x154f09 of _0x10126f)_0x154f09[_0x265ae9(0x23d)]<=_0x5aa388&&(!_0x320374||_0x154f09[_0x265ae9(0x23d)]>_0x320374[_0x265ae9(0x23d)])&&(_0x320374=_0x154f09);return _0x320374||_0x10126f[0x0]||null;}_0x154457['forEach']((_0x18ff2e,_0x119a66)=>{const _0x69d584=_0x1cbb5c,_0x286aff={'AKBEM':function(_0x35a569,_0x7cdc58){return _0x2428aa['GZByp'](_0x35a569,_0x7cdc58);},'rpAvv':function(_0x5f25aa,_0x40bb24){return _0x2428aa['HuBHV'](_0x5f25aa,_0x40bb24);}};if(_0x2428aa[_0x69d584(0x1f7)](_0x2428aa[_0x69d584(0x21a)],_0x2428aa[_0x69d584(0x245)])){if(_0x4ae00f)return;const _0x223db9=_0x2428aa['mmdQC'](0x186a0,_0x119a66),_0x292941=_0x18ff2e[_0x69d584(0x1d6)](_0x377060=>!_0x5a1ccc[_0x69d584(0x1de)]||_0x377060[_0x69d584(0x23d)]>=_0x5a1ccc[_0x69d584(0x1de)])[_0x69d584(0x23a)](_0x15ed85=>({'text':clean(_0x15ed85[_0x69d584(0x1e2)]),'x0':_0x15ed85['x0'],'top':_0x15ed85[_0x69d584(0x23d)]+_0x223db9}))[_0x69d584(0x1d6)](_0x14b506=>_0x14b506[_0x69d584(0x1e2)]),_0x5c5eab=[];_0x292941[_0x69d584(0x1d8)]((_0x10a2e9,_0x45445d)=>_0x10a2e9[_0x69d584(0x23d)]-_0x45445d[_0x69d584(0x23d)])['forEach'](_0x2212b8=>{const _0x17f177=_0x69d584,_0x113e21=_0x5c5eab[_0x17f177(0x231)](_0x169d87=>Math[_0x17f177(0x210)](_0x169d87[_0x17f177(0x23d)]-_0x2212b8[_0x17f177(0x23d)])<=_0x48a16b);_0x113e21?_0x113e21['items'][_0x17f177(0x1db)](_0x2212b8):_0x5c5eab[_0x17f177(0x1db)]({'top':_0x2212b8['top'],'items':[_0x2212b8]});});for(const _0x312c5f of _0x5c5eab){const _0x43afe9=_0x312c5f[_0x69d584(0x1f6)][_0x69d584(0x21c)]()[_0x69d584(0x1d8)]((_0x489c85,_0x563368)=>_0x489c85['x0']-_0x563368['x0']),_0x2a02bd=_0x43afe9['map'](_0x26a7e6=>_0x26a7e6[_0x69d584(0x1e2)])['join']('\x20');if(_0x2f7423){if(_0x2428aa['IlpTC'](_0x69d584(0x230),_0x2428aa[_0x69d584(0x1c7)]))return stXfsZ[_0x69d584(0x243)](_0x1984e7,_0x27bf5f)['includes'](stXfsZ[_0x69d584(0x1fc)](_0x4f5439,_0x141294));else{const _0x57f8e9=_0x2a02bd[_0x69d584(0x1e4)](_0x3d4dad);_0x57f8e9&&_0x348acf['push']({'top':_0x312c5f[_0x69d584(0x23d)],'ano':_0x57f8e9[0x1]});}}if(_0x1c8436){if(_0x2428aa[_0x69d584(0x22d)](_0x2428aa[_0x69d584(0x250)],_0x2428aa['GdkXL'])){const _0x34d926=_0x2a02bd['match'](_0x3f6029);if(_0x34d926){const _0x272ea3=_0x34d926[0x1]['padStart'](0x2,'0'),_0x8e114=_0x125c73[_0x34d926[0x2]['toUpperCase']()];_0x8e114&&_0x373f25['push']({'top':_0x312c5f['top'],'data':_0x272ea3+'/'+_0x8e114+'/'+_0x34d926[0x3]});}}else{const _0x4494aa=_0x4014fb[_0x69d584(0x1d6)](_0x54cdfb=>_0x46cd55[_0x69d584(0x1da)](_0x54cdfb['text'])&&_0x15b4b5(_0x54cdfb['x0'],_0xd90491['colDebitoX']))[_0x69d584(0x23a)](_0x182d25=>({..._0x182d25,'_sinal':-0x1})),_0x282d84=_0x15e019[_0x69d584(0x1d6)](_0x369c1f=>_0x5f40dd['test'](_0x369c1f['text'])&&_0x2dcb82(_0x369c1f['x0'],_0x2be213[_0x69d584(0x236)]))['map'](_0x3921f1=>({..._0x3921f1,'_sinal':0x1}));_0x2e665a=_0x4494aa[_0x69d584(0x228)](_0x282d84);}}if(_0x114026){for(const _0x3370e0 of _0x106e2b)if(_0x2428aa[_0x69d584(0x22e)](includesCollapsed,_0x2a02bd,_0x3370e0['texto'])){_0x3052e2['push']({'top':_0x312c5f[_0x69d584(0x23d)],'sinal':_0x3370e0[_0x69d584(0x1fe)]});break;}}if(_0x5a1ccc[_0x69d584(0x257)]&&_0x2428aa[_0x69d584(0x242)](includesCollapsed,_0x2a02bd,_0x5a1ccc[_0x69d584(0x257)])){_0x4ae00f=!0x0;break;}if(!_0x518eab){_0x2428aa[_0x69d584(0x246)](includesCollapsed,_0x2a02bd,_0x5a1ccc['marcadorInicio'])&&(_0x518eab=!0x0);continue;}if(_0x47b5cd[_0x69d584(0x1df)](_0x37e52a=>includesCollapsed(_0x2a02bd,_0x37e52a)))continue;const _0x189e2a=_0x2428aa[_0x69d584(0x1f1)](mergeValueTokens,_0x43afe9,_0x2dad10,_0x5a1ccc['moeda']||'');_0x210a8f['push'](..._0x189e2a);}}else{const _0x28d440=_0x5ada7b[0x1][_0x69d584(0x1f9)](0x2,'0'),_0x2fdff2=_0x143e6c[_0x5b4b1b[0x2][_0x69d584(0x22c)]()];_0x2fdff2&&_0x5969af['push']({'top':_0x3cd3f1['top'],'data':_0x28d440+'/'+_0x2fdff2+'/'+_0x31e9cf[0x3]});}});let _0x38d414,_0x5796ac=_0x1c8436?[]:_0x210a8f[_0x1cbb5c(0x1d6)](_0x46af0a=>_0x16fa38[_0x1cbb5c(0x1da)](_0x46af0a['text'])&&inRange(_0x46af0a['x0'],_0x5a1ccc[_0x1cbb5c(0x232)]));if(_0x2f7423&&(_0x5796ac=_0x5796ac[_0x1cbb5c(0x23a)](_0x59bdf5=>({..._0x59bdf5,'text':_0x59bdf5['text']+'/'+_0x3865dd(_0x59bdf5[_0x1cbb5c(0x23d)])}))),_0x164164){const _0x1d5a8f=_0x210a8f[_0x1cbb5c(0x1d6)](_0xc299ef=>_0x2a418e[_0x1cbb5c(0x1da)](_0xc299ef[_0x1cbb5c(0x1e2)])&&inRange(_0xc299ef['x0'],_0x5a1ccc[_0x1cbb5c(0x22f)]))[_0x1cbb5c(0x23a)](_0x2d1997=>({..._0x2d1997,'_sinal':-0x1})),_0x48630f=_0x210a8f[_0x1cbb5c(0x1d6)](_0x564c1e=>_0x2a418e[_0x1cbb5c(0x1da)](_0x564c1e[_0x1cbb5c(0x1e2)])&&inRange(_0x564c1e['x0'],_0x5a1ccc['colCreditoX']))[_0x1cbb5c(0x23a)](_0x31d130=>({..._0x31d130,'_sinal':0x1}));_0x38d414=_0x1d5a8f['concat'](_0x48630f);}else _0x38d414=_0x210a8f[_0x1cbb5c(0x1d6)](_0x5bdfbb=>_0x2a418e[_0x1cbb5c(0x1da)](_0x5bdfbb['text'])&&inRange(_0x5bdfbb['x0'],_0x5a1ccc[_0x1cbb5c(0x241)]));const _0x15bef1=_0x5a1ccc[_0x1cbb5c(0x1dc)]||_0x1cbb5c(0x208);let _0x1fe8bb;if(_0x1c8436)_0x1fe8bb=_0x38d414[_0x1cbb5c(0x23a)](_0x567d0c=>{const _0x13de15=_0x1cbb5c,_0x227393=_0x2428aa[_0x13de15(0x212)](_0x582cd7,_0x373f25,_0x567d0c[_0x13de15(0x23d)]),_0x41a96c=_0x114026&&(_0x2428aa[_0x13de15(0x254)](_0x582cd7,_0x3052e2,_0x567d0c[_0x13de15(0x23d)])||{})['sinal']||0x1;return{'top':_0x567d0c[_0x13de15(0x23d)],'data':_0x227393?_0x227393[_0x13de15(0x1ff)]:null,'valor':_0x2428aa[_0x13de15(0x1eb)](_0x41a96c,_0x1a922a(_0x567d0c[_0x13de15(0x1e2)])),'valorRef':_0x567d0c};});else{if(_0x2428aa['NrHrh']===_0x15bef1){const _0x5e1aa4=_0x5796ac[_0x1cbb5c(0x23a)](_0x2950d6=>({..._0x2950d6,'_tipo':_0x1cbb5c(0x1ff)}))[_0x1cbb5c(0x228)](_0x38d414[_0x1cbb5c(0x23a)](_0x5f3da7=>({..._0x5f3da7,'_tipo':'valor'})))[_0x1cbb5c(0x1d8)]((_0x233393,_0x1aeeb8)=>_0x233393[_0x1cbb5c(0x23d)]-_0x1aeeb8[_0x1cbb5c(0x23d)]);let _0x3b508c=null;_0x1fe8bb=[];for(const _0x341776 of _0x5e1aa4)if(_0x2428aa[_0x1cbb5c(0x1d7)]===_0x341776[_0x1cbb5c(0x225)])_0x3b508c=_0x341776['text'];else{const _0x206688=_0x164164?_0x2428aa[_0x1cbb5c(0x1c9)](_0x341776[_0x1cbb5c(0x235)],_0x2428aa[_0x1cbb5c(0x1cd)](_0x1a922a,_0x341776[_0x1cbb5c(0x1e2)])):_0x2428aa['bYNXm'](_0x1a922a,_0x341776[_0x1cbb5c(0x1e2)]);_0x1fe8bb['push']({'top':_0x341776['top'],'data':_0x3b508c,'valor':_0x206688,'valorRef':_0x341776});}}else{const _0x4a5f22=new Set();_0x1fe8bb=_0x38d414[_0x1cbb5c(0x23a)](_0x2a826e=>{const _0x4b8444=_0x1cbb5c,_0x407bba={'boisy':_0x2428aa[_0x4b8444(0x233)]};let _0x25ddbb=-0x1,_0x33b823=0x1/0x0;_0x5796ac['forEach']((_0x5b6235,_0x17e113)=>{const _0x514d5a=_0x4b8444,_0xcc9539={'wFkbL':function(_0x13c0c5,_0x416564){return _0x13c0c5-_0x416564;}};if(_0x407bba[_0x514d5a(0x1d4)]===_0x407bba['boisy']){if(_0x4a5f22['has'](_0x17e113))return;const _0x563f08=Math['abs'](_0x5b6235['top']-_0x2a826e[_0x514d5a(0x23d)]);_0x563f08<_0x33b823&&(_0x33b823=_0x563f08,_0x25ddbb=_0x17e113);}else{if(_0x4b21fc[_0x514d5a(0x203)](_0x44b115))return;const _0x206c47=_0x3753fe['abs'](_0xcc9539['wFkbL'](_0x1fae50['top'],_0x44f8e4['top']));_0x206c47<_0x5c6952&&(_0x44767e=_0x206c47,_0x411b82=_0x119c4a);}}),_0x2428aa[_0x4b8444(0x251)](_0x25ddbb,0x0)&&_0x4a5f22[_0x4b8444(0x224)](_0x25ddbb);const _0x5d2ab8=_0x164164?_0x2428aa[_0x4b8444(0x1f4)](_0x2a826e[_0x4b8444(0x235)],_0x1a922a(_0x2a826e[_0x4b8444(0x1e2)])):_0x2428aa[_0x4b8444(0x21b)](_0x1a922a,_0x2a826e[_0x4b8444(0x1e2)]);return{'top':_0x2a826e[_0x4b8444(0x23d)],'data':_0x2428aa[_0x4b8444(0x1cc)](_0x25ddbb,0x0)?_0x5796ac[_0x25ddbb]['text']:null,'valor':_0x5d2ab8,'valorRef':_0x2a826e,'dateRef':_0x25ddbb>=0x0?_0x5796ac[_0x25ddbb]:null};});}}const _0x572927=_0x210a8f['filter'](_0xff08f7=>!_0x5796ac[_0x1cbb5c(0x219)](_0xff08f7)&&!_0x38d414[_0x1cbb5c(0x219)](_0xff08f7)&&inRange(_0xff08f7['x0'],_0x5a1ccc['colDescricaoX'])),_0x4314f1=new Map(_0x1fe8bb[_0x1cbb5c(0x23a)](_0x46a4e6=>[_0x46a4e6,[]]));_0x572927['forEach'](_0x154731=>{const _0x2c2d01=_0x1cbb5c;if(_0x2428aa[_0x2c2d01(0x24c)](_0x2428aa[_0x2c2d01(0x249)],_0x2428aa[_0x2c2d01(0x252)])){if(JDgmnz[_0x2c2d01(0x24c)](0x0,_0x49c1d5['length']))return _0x4560c4;const _0x3a2098=_0x2c28a1=>'+'===_0x2c28a1||'-'===_0x2c28a1||'C'===_0x2c28a1||'D'===_0x2c28a1||_0x2c28a1===_0x5d90b7||/^[\d.,]+$/[_0x2c2d01(0x1da)](_0x2c28a1),_0x97d7ff=[];let _0x2e1e1d=null;for(const _0x3c59d8 of _0x4bbf1c){const _0x195b3f=_0x14d272[_0x2c2d01(0x25f)](_0x151a8e=>_0x3c59d8['x0']>=_0x151a8e[0x0]&&_0x3c59d8['x0']<=_0x151a8e[0x1]);JDgmnz[_0x2c2d01(0x260)](_0x195b3f,0x0)&&_0x3a2098(_0x3c59d8[_0x2c2d01(0x1e2)])?_0x2e1e1d&&_0x2e1e1d[_0x2c2d01(0x1c8)]===_0x195b3f?_0x2e1e1d[_0x2c2d01(0x1f6)]['push'](_0x3c59d8):(_0x2e1e1d&&_0x97d7ff[_0x2c2d01(0x1db)](JDgmnz[_0x2c2d01(0x262)](_0x5ba91b,_0x2e1e1d)),_0x2e1e1d={'rangeIdx':_0x195b3f,'items':[_0x3c59d8]}):(_0x2e1e1d&&(_0x97d7ff[_0x2c2d01(0x1db)](_0x38c2df(_0x2e1e1d)),_0x2e1e1d=null),_0x97d7ff[_0x2c2d01(0x1db)](_0x3c59d8));}return _0x2e1e1d&&_0x97d7ff[_0x2c2d01(0x1db)](JDgmnz[_0x2c2d01(0x1f5)](_0x3763e1,_0x2e1e1d)),_0x97d7ff;}else{if(_0x2428aa[_0x2c2d01(0x1e7)](0x0,_0x1fe8bb[_0x2c2d01(0x23e)]))return;let _0x2972db=_0x1fe8bb[0x0],_0x10d383=Math['abs'](_0x2428aa[_0x2c2d01(0x255)](_0x1fe8bb[0x0][_0x2c2d01(0x23d)],_0x154731[_0x2c2d01(0x23d)]));for(const _0x333db8 of _0x1fe8bb){const _0x544a8a=Math[_0x2c2d01(0x210)](_0x2428aa[_0x2c2d01(0x1e6)](_0x333db8[_0x2c2d01(0x23d)],_0x154731[_0x2c2d01(0x23d)]));_0x544a8a<_0x10d383&&(_0x10d383=_0x544a8a,_0x2972db=_0x333db8);}_0x4314f1[_0x2c2d01(0x1ec)](_0x2972db)[_0x2c2d01(0x1db)](_0x154731);}});const _0x15d420=_0x1fe8bb[_0x1cbb5c(0x23a)](_0x5603db=>{const _0x40a991=_0x1cbb5c;if(_0x2428aa['JqAIT'](_0x2428aa[_0x40a991(0x1dd)],_0x40a991(0x1ed))){const _0x38e7e1=_0x2428aa[_0x40a991(0x1e5)](clean,_0x4314f1[_0x40a991(0x1ec)](_0x5603db)[_0x40a991(0x21c)]()['sort']((_0x14de5c,_0x49cb52)=>_0x14de5c[_0x40a991(0x23d)]-_0x49cb52[_0x40a991(0x23d)])[_0x40a991(0x23a)](_0x3653d2=>_0x3653d2[_0x40a991(0x1e2)])[_0x40a991(0x207)]('\x20'));return{'data':_0x5603db[_0x40a991(0x1ff)],'descricao':_0x38e7e1,'valor':_0x5603db[_0x40a991(0x226)],'_top':_0x5603db[_0x40a991(0x23d)]};}else{const _0x34f6a8=_0x48fc09['match'](_0x376ee1);_0x34f6a8&&_0x5dec80[_0x40a991(0x1db)]({'top':_0x5c6a4a[_0x40a991(0x23d)],'ano':_0x34f6a8[0x1]});}});return _0x15d420[_0x1cbb5c(0x1d8)]((_0x2e5b7d,_0x42ba58)=>_0x2e5b7d['_top']-_0x42ba58[_0x1cbb5c(0x264)]),_0x15d420[_0x1cbb5c(0x24b)](_0x42d18b=>delete _0x42d18b[_0x1cbb5c(0x264)]),_0x15d420;}_0x51ff80(0x25e)!=typeof module?module[_0x51ff80(0x20b)]={'parseTransactions':parseTransactions}:window[_0x51ff80(0x1ca)]={'parseTransactions':parseTransactions};
+// Parser genérico de extratos bancários em PDF, baseado em posição (x, y) do texto.
+// Funciona tanto no navegador (via pdf.js) quanto no Node (usado só para testes).
+// Cada "config" descreve o layout de um modelo de extrato (ex: configs/cresol1.json).
+
+function clean(text) {
+  return (text || '').replace(/\s+/g, ' ').trim();
+}
+
+function collapse(text) {
+  return (text || '').replace(/\s+/g, '');
+}
+
+function escapeRegex(s) {
+  return (s || '').replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+function parseNumero(t, config) {
+  const milhar = config.separadorMilhar || '.';
+  const decimal = config.separadorDecimal || ',';
+  t = t.split(milhar).join('');
+  t = t.replace(decimal, '.');
+  return parseFloat(t);
+}
+
+// Aceita um range [min,max] OU uma lista de ranges [[min,max],[min,max],...]
+function inRange(x, range) {
+  if (!range) return true;
+  if (Array.isArray(range[0])) {
+    return range.some((r) => x >= r[0] && x <= r[1]);
+  }
+  return x >= range[0] && x <= range[1];
+}
+
+function includesCollapsed(haystack, needle) {
+  return collapse(haystack).includes(collapse(needle));
+}
+
+// Constrói o regex + a função de parse do valor, de acordo com o formato usado
+// pelo banco:
+//  - "prefixoSinal"       ->  "+ R$ 1.000,00" / "- R$ 800,00"   (ex: Cresol)
+//  - "sinalOpcional"      ->  "840,95" (crédito) / "-77,50" (débito), sem moeda   (ex: Santander, Itaú, Sicredi novo)
+//  - "sufixoCD"           ->  "R$ 1.800,00D" / "R$ 181,65C"   (ex: Sicoob — modelo ainda não validado)
+//  - "colunaDebitoCredito"->  duas colunas separadas, sem sinal no texto; o sinal
+//                              vem de qual coluna bateu (colDebitoX = negativo,
+//                              colCreditoX = positivo). Ex: Sicredi (extrato antigo)
+function getValorMatcher(config) {
+  const moeda = escapeRegex(config.moeda || '');
+  const formato = config.formatoValor || 'prefixoSinal';
+
+  if (formato === 'sinalOpcional') {
+    return {
+      regex: /^-?[\d.,]+$/,
+      parse: (raw) => {
+        let t = raw.trim();
+        let sign = 1;
+        if (t.startsWith('-')) { sign = -1; t = t.slice(1).trim(); }
+        return sign * parseNumero(t, config);
+      },
+    };
+  }
+
+  if (formato === 'semSinalContexto') {
+    // valor sem sinal e sem moeda no texto (ex: "90,00"); o sinal não vem
+    // daqui — é resolvido depois via marcadoresSinal + contexto de linha
+    // (ex: Nubank, onde só a linha "Total de entradas/saídas" do grupo tem
+    // sinal; cada lançamento individual embaixo só mostra o número).
+    return {
+      regex: /^[\d.,]+$/,
+      parse: (raw) => parseNumero(raw.trim(), config),
+    };
+  }
+
+  if (formato === 'sufixoCD') {
+    const re = new RegExp('^' + moeda + '\\s*[\\d.,]+\\s*[CD]$');
+    return {
+      regex: re,
+      parse: (raw) => {
+        let t = raw.trim();
+        const sign = /D$/.test(t) ? -1 : 1;
+        t = t.slice(0, -1).trim();
+        t = t.replace(new RegExp('^' + moeda + '\\s*'), '').trim();
+        return sign * parseNumero(t, config);
+      },
+    };
+  }
+
+  // default: prefixoSinal — sinal de "+" é opcional (alguns extratos só
+  // marcam o "-" no débito e não mostram nada no crédito)
+  const re = new RegExp('^[+-]?\\s*' + moeda + '\\s*[\\d.,]+$');
+  return {
+    regex: re,
+    parse: (raw) => {
+      let t = raw.trim();
+      let sign = 1;
+      if (t.startsWith('-')) { sign = -1; t = t.slice(1).trim(); }
+      else if (t.startsWith('+')) { t = t.slice(1).trim(); }
+      t = t.replace(new RegExp('^' + moeda + '\\s*'), '').trim();
+      return sign * parseNumero(t, config);
+    },
+  };
+}
+
+function normalizeRanges(range) {
+  if (!range) return [];
+  return Array.isArray(range[0]) ? range : [range];
+}
+
+// Junta, dentro de uma mesma linha, sequências de tokens "parecidos com valor"
+// (sinal, símbolo de moeda, número, sufixo C/D) que caem numa mesma coluna-alvo.
+// Necessário porque alguns extratos (Stone, Caixa) trazem cada pedacinho do
+// valor como um item de texto separado no PDF, mesmo colados visualmente.
+function mergeValueTokens(sortedItems, ranges, moeda) {
+  if (ranges.length === 0) return sortedItems;
+  const isValorLike = (t) =>
+    t === '+' || t === '-' || t === 'C' || t === 'D' || t === moeda || /^[\d.,]+$/.test(t);
+
+  const result = [];
+  let buffer = null;
+  for (const it of sortedItems) {
+    const rangeIdx = ranges.findIndex((r) => it.x0 >= r[0] && it.x0 <= r[1]);
+    if (rangeIdx >= 0 && isValorLike(it.text)) {
+      if (buffer && buffer.rangeIdx === rangeIdx) {
+        buffer.items.push(it);
+      } else {
+        if (buffer) result.push(flushBuffer(buffer));
+        buffer = { rangeIdx, items: [it] };
+      }
+    } else {
+      if (buffer) { result.push(flushBuffer(buffer)); buffer = null; }
+      result.push(it);
+    }
+  }
+  if (buffer) result.push(flushBuffer(buffer));
+  return result;
+}
+
+function flushBuffer(buffer) {
+  const items = buffer.items;
+  return {
+    text: items.map((i) => i.text).join(' '),
+    x0: items[0].x0,
+    top: items[0].top,
+  };
+}
+
+// pages: array (por página) de arrays de items { text, x0, top }
+function parseTransactions(pages, config) {
+  // "DD/MM" -> extrato só imprime dia/mês em cada lançamento; o ano vem de
+  // uma linha de contexto em outro lugar da página (ex: cabeçalho de mês do
+  // C6, "Janeiro 2026 ( 01/01/2026 - ... )"). Regex de contexto default pega
+  // qualquer DD/MM/YYYY solto na linha; dá pra sobrescrever com
+  // `anoContextoRegex` na config se algum banco precisar de outro padrão.
+  const formatoDataCfg = (config.formatoData || 'DD/MM/YYYY').toUpperCase();
+  const usaAnoContexto = formatoDataCfg === 'DD/MM';
+  // "DD MES YYYY" -> data por extenso com mês abreviado em português (ex:
+  // Nubank: "03 JAN 2026"), impressa uma vez por grupo de lançamentos do dia,
+  // junto com o rótulo "Total de entradas/saídas" na mesma linha. O parser
+  // varre o TEXTO da linha inteira (não token a token) atrás desse padrão.
+  const usaContextoLinha = formatoDataCfg === 'DD MES YYYY';
+  const MESES_PT = { JAN: '01', FEV: '02', MAR: '03', ABR: '04', MAI: '05', JUN: '06',
+    JUL: '07', AGO: '08', SET: '09', OUT: '10', NOV: '11', DEZ: '12' };
+  const dataContextoLinhaRegex = /(\d{1,2})\s+(JAN|FEV|MAR|ABR|MAI|JUN|JUL|AGO|SET|OUT|NOV|DEZ)\s+(\d{4})/i;
+  const dateRegex = usaContextoLinha
+    ? null
+    : usaAnoContexto
+      ? /^\d{2}\/\d{2}$/
+      : formatoDataCfg.includes('YYYY')
+        ? /^\d{2}\/\d{2}\/\d{4}$/
+        : /^\d{2}\/\d{2}\/\d{2}$/;
+  const anoContextoRegex = config.anoContextoRegex
+    ? new RegExp(config.anoContextoRegex)
+    : /\d{2}\/\d{2}\/(\d{4})/;
+  // "semSinalContexto" -> o valor de cada lançamento não tem sinal; o sinal
+  // vem da linha-rótulo mais próxima ACIMA (ex: "Total de saídas" / "Total de
+  // entradas" no Nubank), configurada em `marcadoresSinal`: [{texto, sinal}].
+  const usaSinalContexto = config.formatoValor === 'semSinalContexto';
+  const marcadoresSinal = config.marcadoresSinal || [];
+  const ignorar = config.linhasIgnorar || [];
+  const tol = config.toleranciaLinha || 3;
+  const colunaDebitoCredito = config.formatoValor === 'colunaDebitoCredito';
+  const { regex: valorRegex, parse: parseValorFn } = colunaDebitoCredito
+    ? {
+        // O sinal de fato vem da coluna (débito x crédito); alguns bancos
+        // (ex: Santander Consolidado Inteligente) ainda imprimem um "-" de
+        // sufixo decorativo só na coluna de débito ("330,00-") — aceito e
+        // descarto, sem efeito no sinal (que já vem da coluna).
+        regex: /^[\d.,]+-?$/,
+        parse: (raw) => parseNumero(raw.trim().replace(/-$/, ''), config),
+      }
+    : getValorMatcher(config);
+  const valorRanges = colunaDebitoCredito
+    ? normalizeRanges(config.colDebitoX).concat(normalizeRanges(config.colCreditoX))
+    : normalizeRanges(config.colValorX);
+
+  let flat = [];
+  let anoContextos = []; // { top, ano } — só usado quando usaAnoContexto
+  let dataContextos = []; // { top, data } — só usado quando usaContextoLinha
+  let sinalContextos = []; // { top, sinal } — só usado quando usaSinalContexto
+  let ended = false;
+  let started = false;
+  pages.forEach((items, pageIdx) => {
+    if (ended) return;
+    const offset = pageIdx * 100000;
+    const withTop = items
+      // `ignorarTopoY`: descarta tudo acima dessa coordenada Y (em pontos,
+      // antes do offset de página) em TODA página, não só na primeira — útil
+      // pra extratos que repetem um cabeçalho com dados do titular no topo de
+      // cada página (ex: Nubank: nome, CNPJ, período aparecem de novo em
+      // toda página, e vazariam pra descrição do lançamento mais próximo).
+      .filter((raw) => !config.ignorarTopoY || raw.top >= config.ignorarTopoY)
+      .map((raw) => ({ text: clean(raw.text), x0: raw.x0, top: raw.top + offset }))
+      .filter((it) => it.text);
+    const lines = [];
+    withTop
+      .sort((a, b) => a.top - b.top)
+      .forEach((it) => {
+        const line = lines.find((l) => Math.abs(l.top - it.top) <= tol);
+        if (line) line.items.push(it);
+        else lines.push({ top: it.top, items: [it] });
+      });
+
+    for (const line of lines) {
+      const sortedItems = line.items.slice().sort((a, b) => a.x0 - b.x0);
+      const lineText = sortedItems.map((it) => it.text).join(' ');
+
+      // Captura os contextos (ano / data-por-linha / sinal) ANTES de
+      // qualquer filtro (marcadorInicio/ignorar), porque a linha que traz o
+      // contexto às vezes vem antes do marcadorInicio ou acaba sendo uma
+      // linha ignorada (ex: a própria linha "Total de saídas" do Nubank).
+      if (usaAnoContexto) {
+        const m = lineText.match(anoContextoRegex);
+        if (m) anoContextos.push({ top: line.top, ano: m[1] });
+      }
+      if (usaContextoLinha) {
+        const m = lineText.match(dataContextoLinhaRegex);
+        if (m) {
+          const dia = m[1].padStart(2, '0');
+          const mes = MESES_PT[m[2].toUpperCase()];
+          if (mes) dataContextos.push({ top: line.top, data: `${dia}/${mes}/${m[3]}` });
+        }
+      }
+      if (usaSinalContexto) {
+        for (const marcador of marcadoresSinal) {
+          if (includesCollapsed(lineText, marcador.texto)) {
+            sinalContextos.push({ top: line.top, sinal: marcador.sinal });
+            break;
+          }
+        }
+      }
+
+      if (config.marcadorFim && includesCollapsed(lineText, config.marcadorFim)) {
+        ended = true;
+        break;
+      }
+      if (!started) {
+        if (includesCollapsed(lineText, config.marcadorInicio)) started = true;
+        continue;
+      }
+      if (ignorar.some((s) => includesCollapsed(lineText, s))) continue;
+
+      const itemsParaFlat = mergeValueTokens(sortedItems, valorRanges, config.moeda || '');
+      flat.push(...itemsParaFlat);
+    }
+  });
+
+  function resolveAno(top) {
+    let best = null;
+    for (const c of anoContextos) {
+      if (c.top <= top && (!best || c.top > best.top)) best = c;
+    }
+    return (best || anoContextos[0] || {}).ano || '';
+  }
+  function resolveContexto(lista, top) {
+    let best = null;
+    for (const c of lista) {
+      if (c.top <= top && (!best || c.top > best.top)) best = c;
+    }
+    return best || lista[0] || null;
+  }
+
+  let dateItems = usaContextoLinha
+    ? []
+    : flat.filter((it) => dateRegex.test(it.text) && inRange(it.x0, config.colDataX));
+  if (usaAnoContexto) {
+    dateItems = dateItems.map((it) => ({ ...it, text: `${it.text}/${resolveAno(it.top)}` }));
+  }
+
+  let valorItems;
+  if (colunaDebitoCredito) {
+    const debitos = flat
+      .filter((it) => valorRegex.test(it.text) && inRange(it.x0, config.colDebitoX))
+      .map((it) => ({ ...it, _sinal: -1 }));
+    const creditos = flat
+      .filter((it) => valorRegex.test(it.text) && inRange(it.x0, config.colCreditoX))
+      .map((it) => ({ ...it, _sinal: 1 }));
+    valorItems = debitos.concat(creditos);
+  } else {
+    valorItems = flat.filter((it) => valorRegex.test(it.text) && inRange(it.x0, config.colValorX));
+  }
+
+  const modoData = config.modoData || 'porTransacao';
+  let anchors;
+
+  if (usaContextoLinha) {
+    // Data e sinal não vêm de proximidade com um token — vêm inteiramente do
+    // contexto de linha mais próximo ACIMA de cada valor (ex: Nubank).
+    anchors = valorItems.map((v) => {
+      const dataCtx = resolveContexto(dataContextos, v.top);
+      const sinal = usaSinalContexto ? (resolveContexto(sinalContextos, v.top) || {}).sinal || 1 : 1;
+      return {
+        top: v.top,
+        data: dataCtx ? dataCtx.data : null,
+        valor: sinal * parseValorFn(v.text),
+        valorRef: v,
+      };
+    });
+  } else if (modoData === 'porGrupo') {
+    // A data só é impressa uma vez por grupo de lançamentos (ex: Bradesco);
+    // cada âncora usa a última data vista antes dela, varrendo o documento em ordem.
+    const marcados = dateItems
+      .map((d) => ({ ...d, _tipo: 'data' }))
+      .concat(valorItems.map((v) => ({ ...v, _tipo: 'valor' })))
+      .sort((a, b) => a.top - b.top);
+    let dataAtual = null;
+    anchors = [];
+    for (const item of marcados) {
+      if (item._tipo === 'data') {
+        dataAtual = item.text;
+      } else {
+        const valor = colunaDebitoCredito ? item._sinal * parseValorFn(item.text) : parseValorFn(item.text);
+        anchors.push({ top: item.top, data: dataAtual, valor, valorRef: item });
+      }
+    }
+  } else {
+    // Cada âncora usa a data mais próxima (por distância vertical) ainda não usada.
+    const usedDateIdx = new Set();
+    anchors = valorItems.map((v) => {
+      let best = -1, bestDiff = Infinity;
+      dateItems.forEach((d, i) => {
+        if (usedDateIdx.has(i)) return;
+        const diff = Math.abs(d.top - v.top);
+        if (diff < bestDiff) { bestDiff = diff; best = i; }
+      });
+      if (best >= 0) usedDateIdx.add(best);
+      const valor = colunaDebitoCredito ? v._sinal * parseValorFn(v.text) : parseValorFn(v.text);
+      return {
+        top: v.top,
+        data: best >= 0 ? dateItems[best].text : null,
+        valor,
+        valorRef: v,
+        dateRef: best >= 0 ? dateItems[best] : null,
+      };
+    });
+  }
+
+  const descItems = flat.filter(
+    (it) =>
+      !dateItems.includes(it) &&
+      !valorItems.includes(it) &&
+      inRange(it.x0, config.colDescricaoX)
+  );
+
+  const assigned = new Map(anchors.map((a) => [a, []]));
+  descItems.forEach((it) => {
+    if (anchors.length === 0) return;
+    let best = anchors[0], bestDiff = Math.abs(anchors[0].top - it.top);
+    for (const a of anchors) {
+      const diff = Math.abs(a.top - it.top);
+      if (diff < bestDiff) { bestDiff = diff; best = a; }
+    }
+    assigned.get(best).push(it);
+  });
+
+  const transactions = anchors.map((a) => {
+    const parts = assigned.get(a).slice().sort((x, y) => x.top - y.top);
+    const descricao = clean(parts.map((p) => p.text).join(' '));
+    return { data: a.data, descricao, valor: a.valor, _top: a.top };
+  });
+
+  transactions.sort((x, y) => x._top - y._top);
+  transactions.forEach((t) => delete t._top);
+  return transactions;
+}
+
+if (typeof module !== 'undefined') {
+  module.exports = { parseTransactions };
+} else {
+  window.ExtratoParser = { parseTransactions };
+}
