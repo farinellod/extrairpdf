@@ -1,0 +1,32 @@
+{
+  "banco": "Nubank",
+  "modelo": "nubank1",
+  "descricaoModelo": "Extrato de conta (PF/PJ) Nubank — valor sem sinal por lançamento, sinal vem do rótulo \"Total de entradas/saídas\" do grupo do dia; data \"DD MES YYYY\" impressa uma vez por dia",
+  "imagem": "images/nubank1.png",
+  "marcadorInicio": "Movimentações",
+  "marcadorFim": "O saldo líquido corresponde",
+  "ignorarTopoY": 150,
+  "linhasIgnorar": [
+    "Saldo do dia",
+    "Saldo inicial",
+    "Rendimento líquido",
+    "Total de entradas",
+    "Total de saídas",
+    "Saldo final",
+    "Tem alguma dúvida",
+    "Caso a solução",
+    "Extrato gerado"
+  ],
+  "colDescricaoX": [110, 480],
+  "colValorX": [490, 525],
+  "formatoValor": "semSinalContexto",
+  "marcadoresSinal": [
+    { "texto": "Total de saídas", "sinal": -1 },
+    { "texto": "Total de entradas", "sinal": 1 }
+  ],
+  "separadorDecimal": ",",
+  "separadorMilhar": ".",
+  "formatoData": "DD MES YYYY",
+  "modoData": "contextoLinha",
+  "toleranciaLinha": 3
+}

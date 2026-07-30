@@ -1,0 +1,28 @@
+{
+  "banco": "Santander",
+  "modelo": "santander3",
+  "descricaoModelo": "Extrato Consolidado Inteligente (PJ) — colunas Créditos/Débitos separadas (débito com sufixo \"-\"), data impressa uma vez por dia sem ano (ano vem do cabeçalho \"mês/ano\" de cada página)",
+  "imagem": "images/santander3.png",
+  "marcadorInicio": "Nº Documento",
+  "marcadorFim": "Se sua empresa não tiver limite",
+  "linhasIgnorar": [
+    "Nº Documento",
+    "Data Descrição",
+    "Créditos Débitos",
+    "SALDO EM",
+    "Extrato_PJ_A4_Inteligente",
+    "BALP_UY",
+    "Pagina:"
+  ],
+  "colDataX": [25, 60],
+  "colDescricaoX": [60, 290],
+  "colDebitoX": [418, 442],
+  "colCreditoX": [365, 405],
+  "formatoValor": "colunaDebitoCredito",
+  "separadorDecimal": ",",
+  "separadorMilhar": ".",
+  "formatoData": "DD/MM",
+  "modoData": "porGrupo",
+  "anoContextoRegex": "(?:janeiro|fevereiro|março|abril|maio|junho|julho|agosto|setembro|outubro|novembro|dezembro)\\/(\\d{4})",
+  "toleranciaLinha": 3
+}

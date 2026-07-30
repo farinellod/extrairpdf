@@ -86,5 +86,21 @@
     "config": "configs/c61.json",
     "imagem": "images/c61.png",
     "descricao": "Extrato de conta corrente C6 Bank — testado (919 lançamentos, entradas/saídas batem com os 6 meses do extrato)"
+  },
+  {
+    "id": "nubank1",
+    "banco": "Nubank",
+    "modelo": "Modelo 1",
+    "config": "configs/nubank1.json",
+    "imagem": "images/nubank1.png",
+    "descricao": "Extrato de conta Nubank — testado (55 lançamentos, entradas/saídas batem com o resumo do extrato)"
+  },
+  {
+    "id": "santander3",
+    "banco": "Santander",
+    "modelo": "Modelo 3 (Consolidado Inteligente)",
+    "config": "configs/santander3.json",
+    "imagem": "images/santander3.png",
+    "descricao": "Extrato Consolidado Inteligente PJ — colunas Créditos/Débitos separadas, testado (730 lançamentos, créditos e débitos batem exatamente com o resumo do extrato)"
   }
 ]
