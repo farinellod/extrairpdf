@@ -16,14 +16,33 @@
     "PERIODO: DE",
     "Continua na pagina"
   ],
-  "colDataX": [25, 80],
-  "colDescricaoX": [120, 375],
-  "colDebitoX": [365, 410],
-  "colCreditoX": [445, 490],
+  "colDataX": [
+    25,
+    80
+  ],
+  "colDescricaoX": [
+    120,
+    375
+  ],
+  "colDebitoX": [
+    365,
+    410
+  ],
+  "colCreditoX": [
+    445,
+    490
+  ],
   "formatoValor": "colunaDebitoCredito",
   "moeda": "",
   "separadorDecimal": ",",
   "separadorMilhar": ".",
   "formatoData": "DD/MM/YYYY",
-  "toleranciaLinha": 3
+  "toleranciaLinha": 3,
+  "colunasEsperadas": [
+    "Data",
+    "Histórico",
+    "Débito",
+    "Crédito",
+    "Saldo"
+  ]
 }

@@ -12,13 +12,30 @@
     "Período: de",
     "DATA TIPO DESCRIÇÃO"
   ],
-  "colDataX": [18, 70],
-  "colDescricaoX": [115, 280],
-  "colValorX": [280, 335],
+  "colDataX": [
+    18,
+    70
+  ],
+  "colDescricaoX": [
+    115,
+    280
+  ],
+  "colValorX": [
+    280,
+    335
+  ],
   "formatoValor": "prefixoSinal",
   "moeda": "R$",
   "separadorDecimal": ",",
   "separadorMilhar": ".",
   "formatoData": "DD/MM/AA",
-  "toleranciaLinha": 3
+  "toleranciaLinha": 3,
+  "colunasEsperadas": [
+    "Data",
+    "Tipo",
+    "Descrição",
+    "Valor",
+    "Saldo",
+    "Contraparte"
+  ]
 }

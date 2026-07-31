@@ -5,13 +5,29 @@
   "imagem": "images/santander2.png",
   "marcadorInicio": "Histórico Documento Valor",
   "linhasIgnorar": [],
-  "colDataX": [28, 90],
-  "colDescricaoX": [88, 300],
-  "colValorX": [425, 470],
+  "colDataX": [
+    28,
+    90
+  ],
+  "colDescricaoX": [
+    88,
+    300
+  ],
+  "colValorX": [
+    425,
+    470
+  ],
   "moeda": "",
   "formatoValor": "sinalOpcional",
   "separadorDecimal": ",",
   "separadorMilhar": ".",
   "formatoData": "DD/MM/YYYY",
-  "toleranciaLinha": 3
+  "toleranciaLinha": 3,
+  "colunasEsperadas": [
+    "Data",
+    "Histórico",
+    "Documento",
+    "Valor (R$)",
+    "Saldo (R$)"
+  ]
 }

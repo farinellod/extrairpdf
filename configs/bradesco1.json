@@ -12,13 +12,35 @@
     "Últimos Lançamentos"
   ],
   "modoData": "porGrupo",
-  "colDataX": [30, 90],
-  "colDescricaoX": [95, 260],
-  "colValorX": [[335, 400], [430, 480]],
+  "colDataX": [
+    30,
+    90
+  ],
+  "colDescricaoX": [
+    95,
+    260
+  ],
+  "colValorX": [
+    [
+      335,
+      400
+    ],
+    [
+      430,
+      480
+    ]
+  ],
   "moeda": "",
   "formatoValor": "sinalOpcional",
   "separadorDecimal": ",",
   "separadorMilhar": ".",
   "formatoData": "DD/MM/YYYY",
-  "toleranciaLinha": 3
+  "toleranciaLinha": 3,
+  "colunasEsperadas": [
+    "Data",
+    "Dcto.",
+    "Crédito (R$)",
+    "Débito (R$)",
+    "Saldo (R$)"
+  ]
 }

@@ -11,13 +11,28 @@
     "Saldo do dia",
     "Extrato exportado"
   ],
-  "colDataX": [30, 70],
-  "colDescricaoX": [230, 520],
-  "colValorX": [515, 560],
+  "colDataX": [
+    30,
+    70
+  ],
+  "colDescricaoX": [
+    230,
+    520
+  ],
+  "colValorX": [
+    515,
+    560
+  ],
   "formatoValor": "prefixoSinal",
   "moeda": "R$",
   "separadorDecimal": ",",
   "separadorMilhar": ".",
   "formatoData": "DD/MM",
-  "toleranciaLinha": 3
+  "toleranciaLinha": 3,
+  "colunasEsperadas": [
+    "Data lançamento",
+    "Data contábil",
+    "Tipo",
+    "Valor"
+  ]
 }

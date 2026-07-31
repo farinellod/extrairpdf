@@ -13,13 +13,27 @@
     "SALDO BLOQUEADO ANTERIOR",
     "sicoobnet"
   ],
-  "colDataX": [30, 50],
-  "colDescricaoX": [130, 480],
-  "colValorX": [485, 540],
+  "colDataX": [
+    30,
+    50
+  ],
+  "colDescricaoX": [
+    130,
+    480
+  ],
+  "colValorX": [
+    485,
+    540
+  ],
   "formatoValor": "sufixoCD",
   "moeda": "R$",
   "separadorDecimal": ",",
   "separadorMilhar": ".",
   "formatoData": "DD/MM",
-  "toleranciaLinha": 3
+  "toleranciaLinha": 3,
+  "colunasEsperadas": [
+    "Data",
+    "Documento",
+    "Valor"
+  ]
 }

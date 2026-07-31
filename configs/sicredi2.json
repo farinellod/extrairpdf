@@ -5,14 +5,31 @@
   "imagem": "images/sicredi2.png",
   "marcadorInicio": "Documento Valor (R$) Saldo (R$)",
   "marcadorFim": "Saldo da conta",
-  "linhasIgnorar": ["SALDO ANTERIOR"],
-  "colDataX": [40, 90],
-  "colDescricaoX": [90, 370],
-  "colValorX": [450, 495],
+  "linhasIgnorar": [
+    "SALDO ANTERIOR"
+  ],
+  "colDataX": [
+    40,
+    90
+  ],
+  "colDescricaoX": [
+    90,
+    370
+  ],
+  "colValorX": [
+    450,
+    495
+  ],
   "moeda": "",
   "formatoValor": "sinalOpcional",
   "separadorDecimal": ",",
   "separadorMilhar": ".",
   "formatoData": "DD/MM/YYYY",
-  "toleranciaLinha": 3
+  "toleranciaLinha": 3,
+  "colunasEsperadas": [
+    "Data",
+    "Documento",
+    "Valor (R$)",
+    "Saldo (R$)"
+  ]
 }
