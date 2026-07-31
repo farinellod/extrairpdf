@@ -9,13 +9,29 @@
     "SALDO ANTERIOR",
     "Data Histórico Documento Valor"
   ],
-  "colDataX": [30, 60],
-  "colValorX": [455, 510],
-  "colDescricaoX": [95, 400],
+  "colDataX": [
+    30,
+    60
+  ],
+  "colValorX": [
+    455,
+    510
+  ],
+  "colDescricaoX": [
+    95,
+    400
+  ],
   "moeda": "",
   "formatoValor": "sinalOpcional",
   "separadorDecimal": ",",
   "separadorMilhar": ".",
   "formatoData": "DD/MM/YYYY",
-  "toleranciaLinha": 3
+  "toleranciaLinha": 3,
+  "colunasEsperadas": [
+    "Data",
+    "Histórico",
+    "Documento",
+    "Valor (R$)",
+    "Saldo (R$)"
+  ]
 }
