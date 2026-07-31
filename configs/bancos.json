@@ -4,119 +4,104 @@
     "banco": "Cresol",
     "modelo": "Modelo 1",
     "config": "configs/cresol1.json",
-    "imagem": "images/cresol1.png",
-    "descricao": "Extrato de conta corrente Cresol — testado com extrato de 2026 (saldo/limite no topo, 2 colunas)"
+    "imagem": "images/cresol1.png"
   },
   {
     "id": "cresol2",
     "banco": "Cresol",
     "modelo": "Modelo 2 (exemplo)",
     "config": "configs/cresol2.example.json",
-    "imagem": "images/cresol2.png",
-    "descricao": "Modelo de exemplo — copie configs/cresol1.json, ajuste as coordenadas e troque a imagem quando tiver outro layout de extrato Cresol"
+    "imagem": "images/cresol2.png"
   },
   {
     "id": "santander1",
     "banco": "Santander",
     "modelo": "Modelo 1",
     "config": "configs/santander1.json",
-    "imagem": "images/santander1.png",
-    "descricao": "Extrato Internet Banking Empresarial Santander — testado com extrato de 23 páginas (488 lançamentos, soma bate com o extrato)"
+    "imagem": "images/santander1.png"
   },
   {
     "id": "santander2",
     "banco": "Santander",
     "modelo": "Modelo 2",
     "config": "configs/santander2.json",
-    "imagem": "images/santander2.png",
-    "descricao": "Extrato Aplicativo Santander Empresas — layout diferente do Modelo 1, testado (73 lançamentos no trecho enviado)"
+    "imagem": "images/santander2.png"
   },
   {
     "id": "itau1",
     "banco": "Itaú",
     "modelo": "Modelo 1",
     "config": "configs/itau1.json",
-    "imagem": "images/itau1.png",
-    "descricao": "Extrato conta corrente Itaú Uniclass — testado (58 lançamentos, soma bate com o extrato)"
+    "imagem": "images/itau1.png"
   },
   {
     "id": "bradesco1",
     "banco": "Bradesco",
     "modelo": "Modelo 1",
     "config": "configs/bradesco1.json",
-    "imagem": "images/bradesco1.png",
-    "descricao": "Extrato Mensal / Por Período (Net Empresa) — testado (527 lançamentos, data agrupada por dia)"
+    "imagem": "images/bradesco1.png"
   },
   {
     "id": "sicredi1",
     "banco": "Sicredi",
     "modelo": "Modelo 1",
     "config": "configs/sicredi1.json",
-    "imagem": "images/sicredi1.png",
-    "descricao": "Extrato Sicredi formato antigo/largura fixa — testado (442 lançamentos, soma bate com a variação de saldo)"
+    "imagem": "images/sicredi1.png"
   },
   {
     "id": "sicredi2",
     "banco": "Sicredi",
     "modelo": "Modelo 2",
     "config": "configs/sicredi2.json",
-    "imagem": "images/sicredi2.png",
-    "descricao": "Extrato Sicredi internet banking/app — testado (65 lançamentos, soma bate com a variação de saldo)"
+    "imagem": "images/sicredi2.png"
   },
   {
     "id": "caixa1",
     "banco": "Caixa",
     "modelo": "Modelo 1",
     "config": "configs/caixa1.json",
-    "imagem": "images/caixa1.png",
-    "descricao": "Extrato por período (Gerenciador Caixa) — testado (97 lançamentos, soma bate com o saldo final)"
+    "imagem": "images/caixa1.png"
   },
   {
     "id": "stone1",
     "banco": "Stone",
     "modelo": "Modelo 1",
     "config": "configs/stone1.json",
-    "imagem": "images/stone1.png",
-    "descricao": "Extrato de conta corrente Stone — testado (400 lançamentos, início e fim conferidos)"
+    "imagem": "images/stone1.png"
   },
   {
     "id": "c61",
     "banco": "C6 Bank",
     "modelo": "Modelo 1",
     "config": "configs/c61.json",
-    "imagem": "images/c61.png",
-    "descricao": "Extrato de conta corrente C6 Bank — testado (919 lançamentos, entradas/saídas batem com os 6 meses do extrato)"
+    "imagem": "images/c61.png"
   },
   {
     "id": "nubank1",
     "banco": "Nubank",
     "modelo": "Modelo 1",
     "config": "configs/nubank1.json",
-    "imagem": "images/nubank1.png",
-    "descricao": "Extrato de conta Nubank — testado (55 lançamentos, entradas/saídas batem com o resumo do extrato)"
+    "imagem": "images/nubank1.png"
   },
   {
     "id": "santander3",
     "banco": "Santander",
     "modelo": "Modelo 3 (Consolidado Inteligente)",
     "config": "configs/santander3.json",
-    "imagem": "images/santander3.png",
-    "descricao": "Extrato Consolidado Inteligente PJ — colunas Créditos/Débitos separadas, testado (730 lançamentos, créditos e débitos batem exatamente com o resumo do extrato)"
+    "imagem": "images/santander3.png"
   },
   {
     "id": "sicoob1",
     "banco": "Sicoob",
     "modelo": "Modelo 1",
     "config": "configs/sicoob1.json",
-    "imagem": "images/sicoob1.png",
-    "descricao": "Extrato de conta corrente Sicoob (Internet Banking, exportado do navegador) — testado (130 lançamentos, soma bate exatamente com a variação de saldo)"
+    "imagem": "images/sicoob1.png"
   },
   {
     "id": "itau2",
     "banco": "Itaú",
     "modelo": "Modelo 2 (PJ/empresas)",
     "config": "configs/itau2.json",
-    "imagem": "images/itau2.png",
-    "descricao": "Extrato conta corrente Itaú PJ/empresas — colunas Lançamentos/Razão Social/CNPJ-CPF separadas, testado (1.864 lançamentos, saldo bate exatamente em todos os 103 dias do período)"
+    "imagem": "images/itau2.png"
   }
 ]
