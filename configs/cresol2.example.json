@@ -5,6 +5,7 @@
   "descricaoModelo": "Exemplo — copiar e ajustar quando houver um segundo layout de extrato Cresol",
   "imagem": "images/cresol2.png",
   "marcadorInicio": "Lançamentos",
+  "marcadoresConfirmacao": ["Saldo em Conta"],
   "linhasIgnorar": [
     "Lançamentos",
     "Saldo do Dia",

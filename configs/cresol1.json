@@ -4,6 +4,7 @@
   "descricaoModelo": "Extrato conta corrente - layout 2 colunas (testado em extratos de 2026)",
   "imagem": "images/cresol1.png",
   "marcadorInicio": "Lançamentos",
+  "marcadoresConfirmacao": ["Saldo em Conta"],
   "linhasIgnorar": [
     "Lançamentos",
     "Saldo do Dia",
