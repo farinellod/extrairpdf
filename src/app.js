@@ -8,6 +8,7 @@ const previewImg = document.getElementById('previewImg');
 const previewFallback = document.getElementById('previewFallback');
 const fileInput = document.getElementById('fileInput');
 const dropzoneText = document.getElementById('dropzoneText');
+const avisoCompatibilidade = document.getElementById('avisoCompatibilidade');
 const btnConverter = document.getElementById('btnConverter');
 const statusEl = document.getElementById('status');
 const resultadoSection = document.getElementById('resultado');
@@ -16,6 +17,10 @@ const totalLinhasEl = document.getElementById('totalLinhas');
 
 let registro = [];
 let arquivoSelecionado = null;
+// Cache das páginas do PDF já extraídas do arquivo atual, pra não ler o PDF
+// de novo (custa caro) toda vez que o usuário troca o modelo selecionado.
+let paginasCache = null;
+let paginasCacheArquivo = null;
 
 function setStatus(msg) {
   statusEl.textContent = msg;
@@ -60,14 +65,20 @@ function atualizarPreview() {
 }
 
 selectBanco.addEventListener('change', atualizarModelos);
-selectModelo.addEventListener('change', atualizarPreview);
+selectModelo.addEventListener('change', () => {
+  atualizarPreview();
+  conferirCompatibilidade();
+});
 
 fileInput.addEventListener('change', () => {
   arquivoSelecionado = fileInput.files[0] || null;
   dropzoneText.textContent = arquivoSelecionado
     ? arquivoSelecionado.name
     : 'Toque para escolher o PDF';
+  paginasCache = null;
+  paginasCacheArquivo = null;
   atualizarBotao();
+  conferirCompatibilidade();
 });
 
 async function extrairPaginas(arrayBuffer) {
@@ -125,6 +136,95 @@ function renderTabela(transacoes) {
   resultadoSection.hidden = false;
 }
 
+// Testa as colunas esperadas de todos os outros modelos cadastrados contra
+// a página 1 do PDF e devolve o de maior pontuação (só entre os compatíveis).
+// Usado quando o modelo selecionado não bate, pra sugerir o certo.
+async function sugerirModelo(pages, idAtual) {
+  let melhor = null;
+  for (const cand of registro) {
+    if (cand.id === idAtual) continue;
+    try {
+      const cfg = await fetch(cand.config).then((r) => r.json());
+      const res = window.ExtratoParser.validarModelo(pages, cfg);
+      if (res.aplicavel && res.compativel && (!melhor || res.score > melhor.score)) {
+        melhor = { ...cand, score: res.score };
+      }
+    } catch (e) {
+      // config desse candidato falhou ao carregar — ignora e segue tentando os outros
+    }
+  }
+  return melhor;
+}
+
+function esconderAviso() {
+  avisoCompatibilidade.hidden = true;
+  avisoCompatibilidade.textContent = '';
+  avisoCompatibilidade.classList.remove('aviso-ok');
+}
+
+function mostrarAviso(msg, { ok = false } = {}) {
+  avisoCompatibilidade.textContent = msg;
+  avisoCompatibilidade.hidden = false;
+  avisoCompatibilidade.classList.toggle('aviso-ok', ok);
+}
+
+// Garante que as páginas do PDF atual estão extraídas e em cache — só lê o
+// arquivo de novo se ele mudou desde a última chamada.
+async function obterPaginas() {
+  if (paginasCache && paginasCacheArquivo === arquivoSelecionado) return paginasCache;
+  const arrayBuffer = await arquivoSelecionado.arrayBuffer();
+  paginasCache = await extrairPaginas(arrayBuffer);
+  paginasCacheArquivo = arquivoSelecionado;
+  return paginasCache;
+}
+
+// Roda assim que um PDF é escolhido (ou o modelo é trocado com um PDF já
+// escolhido): confere se o arquivo bate com o modelo selecionado e, se não
+// bater, procura nos demais modelos cadastrados por um que bata melhor —
+// escrevendo a sugestão embaixo do upload, antes mesmo de clicar em Converter.
+let conferenciaEmAndamento = 0;
+async function conferirCompatibilidade() {
+  const item = itemSelecionado();
+  if (!item || !arquivoSelecionado) {
+    esconderAviso();
+    return;
+  }
+
+  const minhaConferencia = ++conferenciaEmAndamento;
+  try {
+    mostrarAviso('Conferindo se o PDF é compatível com o modelo selecionado…');
+    const config = await fetch(item.config).then((r) => r.json());
+    const pages = await obterPaginas();
+    if (minhaConferencia !== conferenciaEmAndamento) return; // usuário já trocou algo, descarta
+
+    const validacao = window.ExtratoParser.validarModelo(pages, config);
+    if (!validacao.aplicavel) {
+      esconderAviso();
+      return;
+    }
+    if (validacao.compativel) {
+      mostrarAviso(`PDF compatível com o modelo "${item.modelo}" (${item.banco}).`, { ok: true });
+      return;
+    }
+
+    const sugestao = await sugerirModelo(pages, item.id);
+    if (minhaConferencia !== conferenciaEmAndamento) return;
+
+    if (sugestao) {
+      mostrarAviso(
+        `Este PDF não parece ser do modelo "${item.modelo}" (${item.banco}). Tente o modelo "${sugestao.modelo}" (${sugestao.banco}).`
+      );
+    } else {
+      mostrarAviso(
+        `Aviso: não encontrei todas as colunas esperadas do modelo "${item.modelo}" (faltando: ${validacao.faltando.join(', ') || '—'}).`
+      );
+    }
+  } catch (e) {
+    // Leitura do PDF/config falhou aqui — deixa o clique em Converter reportar o erro
+    esconderAviso();
+  }
+}
+
 btnConverter.addEventListener('click', async () => {
   const item = itemSelecionado();
   if (!item || !arquivoSelecionado) return;
@@ -135,8 +235,7 @@ btnConverter.addEventListener('click', async () => {
     const config = await fetch(item.config).then((r) => r.json());
 
     setStatus('Lendo o PDF…');
-    const arrayBuffer = await arquivoSelecionado.arrayBuffer();
-    const pages = await extrairPaginas(arrayBuffer);
+    const pages = await obterPaginas();
 
     setStatus('Identificando lançamentos…');
     const transacoes = window.ExtratoParser.parseTransactions(pages, config);
