@@ -384,45 +384,8 @@ function parseTransactions(pages, config) {
   return transactions;
 }
 
-// Tenta descobrir sozinho qual(is) modelo(s) de extrato batem com o PDF que o
-// usuário escolheu, sem precisar que ele selecione banco/modelo na mão.
-//
-// Estratégia: cada config já tem um `marcadorInicio` — um texto que só
-// aparece perto do começo da tabela de lançamentos (ex: "Histórico Documento
-// Valor" no Santander modelo 2). Isso já funciona como uma "impressão
-// digital" do layout. Aqui a gente só testa esse marcador (+ um opcional
-// `marcadoresConfirmacao`, pra desempatar modelos parecidos do mesmo banco)
-// contra o texto inteiro do PDF, pra cada config carregado.
-//
-// registro: array de objetos { id, banco, modelo, config: <config já
-//           carregado, não o caminho>, imagem, descricao }
-// pages: mesmo formato usado em parseTransactions (array por página de
-//        arrays de { text, x0, top })
-//
-// Retorna a lista de itens do registro cujo config bateu (0, 1 ou vários).
-function detectarModelo(pages, registro) {
-  const textoColapsado = collapse(
-    pages
-      .flat()
-      .map((it) => it.text)
-      .join(' ')
-  );
-
-  return registro.filter((item) => {
-    const cfg = item.config;
-    if (!cfg || !cfg.marcadorInicio) return false;
-    if (!textoColapsado.includes(collapse(cfg.marcadorInicio))) return false;
-
-    // Confirmação extra opcional (ex: itau2.json usa isso pra não ser
-    // confundido com itau1.json — ambos têm um cabeçalho de tabela parecido,
-    // mas só o modelo 2/PJ tem a coluna "Razão Social").
-    const confirmacoes = cfg.marcadoresConfirmacao || [];
-    return confirmacoes.every((texto) => textoColapsado.includes(collapse(texto)));
-  });
-}
-
 if (typeof module !== 'undefined') {
-  module.exports = { parseTransactions, detectarModelo };
+  module.exports = { parseTransactions };
 } else {
-  window.ExtratoParser = { parseTransactions, detectarModelo };
+  window.ExtratoParser = { parseTransactions };
 }
