@@ -15,7 +15,15 @@ const tabelaBody = document.querySelector('#tabelaResultado tbody');
 const totalLinhasEl = document.getElementById('totalLinhas');
 
 let registro = [];
+let registroAtivo = []; // subconjunto de `registro` exibido nos seletores —
+                         // igual a `registro` no caso normal, mas fica
+                         // restrito aos candidatos quando a detecção
+                         // automática encontra mais de um modelo compatível.
+let configsPorId = {};
 let arquivoSelecionado = null;
+let paginasPromise = null; // cache da extração (pages) do PDF atual, pra não
+                            // reprocessar o mesmo arquivo duas vezes (uma na
+                            // detecção automática, outra ao converter).
 
 function setStatus(msg) {
   statusEl.textContent = msg;
@@ -28,14 +36,32 @@ function atualizarBotao() {
 async function carregarRegistro() {
   const resp = await fetch('configs/bancos.json');
   registro = await resp.json();
-  const bancos = [...new Set(registro.map((r) => r.banco))];
+
+  // Carrega todos os configs de uma vez (são arquivos pequenos) — usados
+  // tanto pela detecção automática do modelo quanto, depois, ao converter,
+  // sem precisar buscar de novo.
+  const entradas = await Promise.all(
+    registro.map((r) => fetch(r.config).then((resp2) => resp2.json()).then((cfg) => [r.id, cfg]))
+  );
+  configsPorId = Object.fromEntries(entradas);
+
+  preencherSeletorCompleto();
+}
+
+function preencherSeletor(itens) {
+  registroAtivo = itens;
+  const bancos = [...new Set(itens.map((r) => r.banco))];
   selectBanco.innerHTML = bancos.map((b) => `<option value="${b}">${b}</option>`).join('');
   atualizarModelos();
 }
 
+function preencherSeletorCompleto() {
+  preencherSeletor(registro);
+}
+
 function atualizarModelos() {
   const banco = selectBanco.value;
-  const opcoes = registro.filter((r) => r.banco === banco);
+  const opcoes = registroAtivo.filter((r) => r.banco === banco);
   selectModelo.innerHTML = opcoes
     .map((o) => `<option value="${o.id}">${o.modelo}</option>`)
     .join('');
@@ -60,16 +86,14 @@ function atualizarPreview() {
   atualizarBotao();
 }
 
-selectBanco.addEventListener('change', atualizarModelos);
-selectModelo.addEventListener('change', atualizarPreview);
-
-fileInput.addEventListener('change', () => {
-  arquivoSelecionado = fileInput.files[0] || null;
-  dropzoneText.textContent = arquivoSelecionado
-    ? arquivoSelecionado.name
-    : 'Toque para escolher o PDF';
-  atualizarBotao();
+selectBanco.addEventListener('change', () => {
+  // Se a lista estava restrita aos candidatos da detecção automática e o
+  // usuário mesmo assim mexeu no seletor, é sinal de que quer escolher outra
+  // coisa — libera a lista completa de novo.
+  registroAtivo = registro;
+  atualizarModelos();
 });
+selectModelo.addEventListener('change', atualizarPreview);
 
 async function extrairPaginas(arrayBuffer) {
   const doc = await pdfjsLib.getDocument({ data: arrayBuffer }).promise;
@@ -87,6 +111,56 @@ async function extrairPaginas(arrayBuffer) {
   }
   return pages;
 }
+
+// Extrai o PDF selecionado uma única vez e reaproveita o resultado — tanto a
+// detecção automática (no fileInput) quanto o clique em "Converter" chamam
+// isso, mas só o primeiro de fato processa o arquivo.
+function obterPaginas() {
+  if (!paginasPromise) {
+    paginasPromise = arquivoSelecionado.arrayBuffer().then(extrairPaginas);
+  }
+  return paginasPromise;
+}
+
+fileInput.addEventListener('change', async () => {
+  arquivoSelecionado = fileInput.files[0] || null;
+  paginasPromise = null; // arquivo novo, invalida a extração anterior
+  dropzoneText.textContent = arquivoSelecionado ? arquivoSelecionado.name : 'Toque para escolher o PDF';
+  atualizarBotao();
+
+  if (!arquivoSelecionado) {
+    preencherSeletorCompleto();
+    setStatus('');
+    return;
+  }
+
+  setStatus('Analisando PDF…');
+  try {
+    const pages = await obterPaginas();
+    const registroComConfig = registro.map((r) => ({ ...r, config: configsPorId[r.id] }));
+    const candidatos = window.ExtratoParser.detectarModelo(pages, registroComConfig);
+
+    if (candidatos.length === 1) {
+      const [achado] = candidatos;
+      preencherSeletorCompleto();
+      selectBanco.value = achado.banco;
+      atualizarModelos();
+      selectModelo.value = achado.id;
+      atualizarPreview();
+      setStatus(`Modelo detectado automaticamente: ${achado.banco} — ${achado.modelo}. Confira a prévia e, se estiver certo, é só converter.`);
+    } else if (candidatos.length > 1) {
+      preencherSeletor(candidatos);
+      setStatus(`Encontrei ${candidatos.length} modelos compatíveis com este PDF — confirme qual é o certo abaixo.`);
+    } else {
+      preencherSeletorCompleto();
+      setStatus('Não consegui reconhecer o modelo automaticamente — selecione o banco e o modelo manualmente.');
+    }
+  } catch (err) {
+    console.error(err);
+    preencherSeletorCompleto();
+    setStatus('Não consegui analisar o PDF automaticamente — selecione o banco e o modelo manualmente.');
+  }
+});
 
 function baixarExcel(transacoes, nomeArquivo) {
   const dados = transacoes.map((t) => ({
@@ -131,13 +205,11 @@ btnConverter.addEventListener('click', async () => {
   if (!item || !arquivoSelecionado) return;
 
   btnConverter.disabled = true;
-  setStatus('Lendo configuração do modelo…');
   try {
-    const config = await fetch(item.config).then((r) => r.json());
+    const config = configsPorId[item.id];
 
     setStatus('Lendo o PDF…');
-    const arrayBuffer = await arquivoSelecionado.arrayBuffer();
-    const pages = await extrairPaginas(arrayBuffer);
+    const pages = await obterPaginas();
 
     setStatus('Identificando lançamentos…');
     const transacoes = window.ExtratoParser.parseTransactions(pages, config);
