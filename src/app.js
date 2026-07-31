@@ -49,7 +49,6 @@ function itemSelecionado() {
 function atualizarPreview() {
   const item = itemSelecionado();
   if (!item) return;
-  modeloDescricao.textContent = item.descricao || '';
   previewImg.hidden = false;
   previewFallback.hidden = true;
   previewImg.onerror = () => {
