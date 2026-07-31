@@ -116,6 +116,14 @@ select, input[type="file"] {
   color: var(--ink-soft);
 }
 
+.hint-aviso {
+  color: var(--debit);
+}
+
+.hint-aviso.aviso-ok {
+  color: var(--credit);
+}
+
 .preview-frame {
   border: 1px solid var(--line);
   background: #fff;
