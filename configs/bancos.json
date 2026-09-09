@@ -103,5 +103,12 @@
     "modelo": "Modelo 2 (PJ/empresas)",
     "config": "configs/itau2.json",
     "imagem": "images/itau2.png"
+  },
+  {
+    "id": "shopee1",
+    "banco": "Shopee",
+    "modelo": "Modelo 1 (ShopeePay)",
+    "config": "configs/shopee1.json",
+    "imagem": "images/shopee1.png"
   }
 ]

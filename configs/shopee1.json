@@ -1,0 +1,29 @@
+{
+  "banco": "Shopee",
+  "modelo": "shopee1",
+  "descricaoModelo": "Extrato ShopeePay — data no formato DD-MM-YYYY (com hífen), coluna extra de Hora (não utilizada), valor com sinal antes do R$ (ex: \"-R$29,20\")",
+  "imagem": "images/shopee1.png",
+  "marcadorInicio": "Data Hora Tipo de Transação Valor da Transação",
+  "linhasIgnorar": [
+    "Data Hora Tipo de Transação Valor da Transação",
+    "Extrato gerado em",
+    "SHPP BRASIL INSTITUICAO",
+    "Se você ficou com alguma dúvida",
+    "segunda a sexta das"
+  ],
+  "colDataX": [80, 120],
+  "colDescricaoX": [320, 465],
+  "colValorX": [480, 530],
+  "formatoValor": "prefixoSinal",
+  "moeda": "R$",
+  "separadorDecimal": ",",
+  "separadorMilhar": ".",
+  "formatoData": "DD-MM-YYYY",
+  "toleranciaLinha": 3,
+  "colunasEsperadas": [
+    "Data",
+    "Hora",
+    "Tipo de Transação",
+    "Valor da Transação"
+  ]
+}
