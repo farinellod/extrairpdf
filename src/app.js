@@ -123,6 +123,12 @@ function baixarExcel(transacoes, nomeArquivo) {
   // Ativa o filtro (setinhas) no cabeçalho das colunas A, B e C
   ws['!autofilter'] = { ref: `A1:C${range.e.r + 1}` };
 
+  // F1: subtotal que soma só as linhas visíveis (respeita o filtro ativo)
+  ws['F1'] = { t: 'n', f: 'SUBTOTAL(109,C:C)' };
+  const rangeComF = XLSX.utils.decode_range(ws['!ref']);
+  rangeComF.e.c = Math.max(rangeComF.e.c, 5); // coluna F = índice 5
+  ws['!ref'] = XLSX.utils.encode_range(rangeComF);
+
   const wb = XLSX.utils.book_new();
   XLSX.utils.book_append_sheet(wb, ws, 'Lançamentos');
   XLSX.writeFile(wb, nomeArquivo);
