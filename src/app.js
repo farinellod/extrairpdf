@@ -120,6 +120,9 @@ function baixarExcel(transacoes, nomeArquivo) {
     }
   }
 
+  // Ativa o filtro (setinhas) no cabeçalho das colunas A, B e C
+  ws['!autofilter'] = { ref: `A1:C${range.e.r + 1}` };
+
   const wb = XLSX.utils.book_new();
   XLSX.utils.book_append_sheet(wb, ws, 'Lançamentos');
   XLSX.writeFile(wb, nomeArquivo);
