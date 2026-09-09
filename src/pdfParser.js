@@ -162,13 +162,19 @@ function parseTransactions(pages, config) {
   const MESES_PT = { JAN: '01', FEV: '02', MAR: '03', ABR: '04', MAI: '05', JUN: '06',
     JUL: '07', AGO: '08', SET: '09', OUT: '10', NOV: '11', DEZ: '12' };
   const dataContextoLinhaRegex = /(\d{1,2})\s+(JAN|FEV|MAR|ABR|MAI|JUN|JUL|AGO|SET|OUT|NOV|DEZ)\s+(\d{4})/i;
+  // "DD-MM-YYYY" -> data com hífen em vez de barra (ex: Shopee/ShopeePay:
+  // "12-11-2025"). Normalizada pra "DD/MM/YYYY" na saída, pra ficar
+  // consistente com os demais bancos.
+  const usaTracoData = formatoDataCfg === 'DD-MM-YYYY';
   const dateRegex = usaContextoLinha
     ? null
-    : usaAnoContexto
-      ? /^\d{2}\/\d{2}$/
-      : formatoDataCfg.includes('YYYY')
-        ? /^\d{2}\/\d{2}\/\d{4}$/
-        : /^\d{2}\/\d{2}\/\d{2}$/;
+    : usaTracoData
+      ? /^\d{2}-\d{2}-\d{4}$/
+      : usaAnoContexto
+        ? /^\d{2}\/\d{2}$/
+        : formatoDataCfg.includes('YYYY')
+          ? /^\d{2}\/\d{2}\/\d{4}$/
+          : /^\d{2}\/\d{2}\/\d{2}$/;
   const anoContextoRegex = config.anoContextoRegex
     ? new RegExp(config.anoContextoRegex)
     : /\d{2}\/\d{2}\/(\d{4})/;
@@ -285,6 +291,9 @@ function parseTransactions(pages, config) {
     : flat.filter((it) => dateRegex.test(it.text) && inRange(it.x0, config.colDataX));
   if (usaAnoContexto) {
     dateItems = dateItems.map((it) => ({ ...it, text: `${it.text}/${resolveAno(it.top)}` }));
+  }
+  if (usaTracoData) {
+    dateItems = dateItems.map((it) => ({ ...it, text: it.text.split('-').join('/') }));
   }
 
   let valorItems;
