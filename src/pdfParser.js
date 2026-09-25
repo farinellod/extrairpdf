@@ -113,6 +113,7 @@ function mergeValueTokens(sortedItems, ranges, moeda) {
   if (ranges.length === 0) return sortedItems;
   const isValorLike = (t) =>
     t === '+' || t === '-' || t === 'C' || t === 'D' || t === moeda ||
+    (moeda && (t === '-' + moeda || t === '+' + moeda)) || // sinal colado na moeda, sem espaço (ex: Inter: "-R$")
     /^[\d.,]+$/.test(t) ||
     /^[\d.,]+[CD]$/.test(t); // número e sufixo C/D colados sem espaço (ex: Sicoob: "166,60D")
 
@@ -161,7 +162,10 @@ function parseTransactions(pages, config) {
   const usaContextoLinha = formatoDataCfg === 'DD MES YYYY';
   const MESES_PT = { JAN: '01', FEV: '02', MAR: '03', ABR: '04', MAI: '05', JUN: '06',
     JUL: '07', AGO: '08', SET: '09', OUT: '10', NOV: '11', DEZ: '12' };
-  const dataContextoLinhaRegex = /(\d{1,2})\s+(JAN|FEV|MAR|ABR|MAI|JUN|JUL|AGO|SET|OUT|NOV|DEZ)\s+(\d{4})/i;
+  // Aceita tanto o mês abreviado colado (Nubank: "03 JAN 2026") quanto o mês
+  // por extenso com "de" (Inter: "2 de Janeiro de 2026") — o "(?:de\s+)?" e o
+  // sufixo do nome do mês são opcionais nos dois lados.
+  const dataContextoLinhaRegex = /(\d{1,2})\s+(?:de\s+)?(JAN(?:EIRO)?|FEV(?:EREIRO)?|MAR(?:ÇO)?|ABR(?:IL)?|MAI(?:O)?|JUN(?:HO)?|JUL(?:HO)?|AGO(?:STO)?|SET(?:EMBRO)?|OUT(?:UBRO)?|NOV(?:EMBRO)?|DEZ(?:EMBRO)?)\s+(?:de\s+)?(\d{4})/i;
   // "DD-MM-YYYY" -> data com hífen em vez de barra (ex: Shopee/ShopeePay:
   // "12-11-2025"). Normalizada pra "DD/MM/YYYY" na saída, pra ficar
   // consistente com os demais bancos.
@@ -243,7 +247,7 @@ function parseTransactions(pages, config) {
         const m = lineText.match(dataContextoLinhaRegex);
         if (m) {
           const dia = m[1].padStart(2, '0');
-          const mes = MESES_PT[m[2].toUpperCase()];
+          const mes = MESES_PT[m[2].toUpperCase().slice(0, 3)];
           if (mes) dataContextos.push({ top: line.top, data: `${dia}/${mes}/${m[3]}` });
         }
       }
