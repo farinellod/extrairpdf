@@ -1,0 +1,23 @@
+{
+  "banco": "Inter",
+  "modelo": "inter1",
+  "descricaoModelo": "Extrato PJ (site/app) — agrupado por dia, data por extenso \"D de Mês de YYYY\", saldo do dia e saldo por transação ignorados",
+  "imagem": "images/inter1.png",
+  "marcadorInicio": "Saldo por transação",
+  "linhasIgnorar": [
+    "Saldo do dia",
+    "Fale com a gente",
+    "SAC:",
+    "(opção 09)"
+  ],
+  "colDescricaoX": [35, 405],
+  "colValorX": [400, 475],
+  "formatoValor": "prefixoSinal",
+  "moeda": "R$",
+  "separadorDecimal": ",",
+  "separadorMilhar": ".",
+  "formatoData": "DD MES YYYY",
+  "modoData": "contextoLinha",
+  "toleranciaLinha": 3,
+  "colunasEsperadas": ["Data", "Descrição", "Valor", "Saldo por transação"]
+}

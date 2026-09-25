@@ -1,0 +1,25 @@
+{
+  "banco": "Sisprime do Brasil",
+  "modelo": "sisprime1",
+  "descricaoModelo": "Extrato de conta corrente NEXX (Sisprime) — colunas separadas de Débito e Crédito, saldo corrido ignorado",
+  "imagem": "images/sisprime1.png",
+  "marcadorInicio": "Saldo Anterior",
+  "marcadorFim": "Posição em",
+  "ignorarTopoY": 130,
+  "linhasIgnorar": [
+    "De Transporte",
+    "A Transportar",
+    "Versão 2.6.9"
+  ],
+  "colDataX": [15, 60],
+  "colDescricaoX": [120, 314],
+  "colDebitoX": [315, 384],
+  "colCreditoX": [385, 425],
+  "formatoValor": "colunaDebitoCredito",
+  "moeda": "",
+  "separadorDecimal": ",",
+  "separadorMilhar": ".",
+  "formatoData": "DD/MM/YYYY",
+  "toleranciaLinha": 3,
+  "colunasEsperadas": ["Data", "Histórico", "Débito", "Crédito"]
+}

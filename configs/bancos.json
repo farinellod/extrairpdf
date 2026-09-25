@@ -110,5 +110,19 @@
     "modelo": "Modelo 1 (ShopeePay)",
     "config": "configs/shopee1.json",
     "imagem": "images/shopee1.png"
+  },
+  {
+    "id": "sisprime1",
+    "banco": "Sisprime do Brasil",
+    "modelo": "Modelo 1 (NEXX, conta corrente PJ)",
+    "config": "configs/sisprime1.json",
+    "imagem": "images/sisprime1.png"
+  },
+  {
+    "id": "inter1",
+    "banco": "Inter",
+    "modelo": "Modelo 1 (extrato PJ, agrupado por dia)",
+    "config": "configs/inter1.json",
+    "imagem": "images/inter1.png"
   }
 ]
