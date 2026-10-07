@@ -223,6 +223,10 @@ async function conferirCompatibilidade() {
       mostrarAviso(
         `Este PDF não parece ser do modelo "${item.modelo}" (${item.banco}). Tente o modelo "${sugestao.modelo}" (${sugestao.banco}).`
       );
+    } else if (validacao.faltando.length === 0 && (validacao.sobrando || []).length > 0) {
+      mostrarAviso(
+        `Aviso: este PDF tem colunas que o modelo "${item.modelo}" não tem (${validacao.sobrando.join(', ')}) — talvez seja outro modelo do ${item.banco}.`
+      );
     } else {
       mostrarAviso(
         `Aviso: não encontrei todas as colunas esperadas do modelo "${item.modelo}" (faltando: ${validacao.faltando.join(', ') || '—'}).`

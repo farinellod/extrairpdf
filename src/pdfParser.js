@@ -376,8 +376,28 @@ function parseTransactions(pages, config) {
   );
 
   const assigned = new Map(anchors.map((a) => [a, []]));
+  // `descricaoAbaixo`: a descrição de cada lançamento começa na mesma linha
+  // do valor e continua nas linhas de BAIXO, até o próximo lançamento (ex:
+  // Sicoob SISBR — "PIX RECEB.OUTRA IF" / "Recebimento Pix" / nome / CPF /
+  // "DOC.: Pix"). Por proximidade pura, as últimas linhas de um bloco longo
+  // ficariam mais perto do lançamento seguinte; aqui cada linha vai pro
+  // lançamento mais próximo que esteja na mesma altura ou ACIMA dela
+  // (inclusive quando o bloco continua na página seguinte).
+  const tolAbaixo = config.toleranciaLinha || 3;
+  const anchorsPorTop = config.descricaoAbaixo
+    ? anchors.slice().sort((a, b) => a.top - b.top)
+    : null;
   descItems.forEach((it) => {
     if (anchors.length === 0) return;
+    if (anchorsPorTop) {
+      let dono = null;
+      for (const a of anchorsPorTop) {
+        if (a.top <= it.top + tolAbaixo) dono = a;
+        else break;
+      }
+      if (dono) assigned.get(dono).push(it);
+      return;
+    }
     let best = anchors[0], bestDiff = Math.abs(anchors[0].top - it.top);
     for (const a of anchors) {
       const diff = Math.abs(a.top - it.top);
@@ -397,8 +417,97 @@ function parseTransactions(pages, config) {
   return transactions;
 }
 
+// Normaliza texto pra comparar rótulos de coluna: sem acento, maiúsculo, sem
+// espaço, e "Nº"/"N°" viram "N" (os extratos usam os dois símbolos).
+function normalizarRotulo(text) {
+  return (text || '')
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[º°]/g, '')
+    .toUpperCase()
+    .replace(/\s+/g, '');
+}
+
+// Confere se o PDF bate com o modelo, procurando os rótulos de
+// `colunasEsperadas` no cabeçalho da tabela de lançamentos.
+//
+// O "cabeçalho" é a região da página onde aparece o `marcadorInicio` (só nas
+// 3 primeiras páginas): tudo do topo da página até a linha do marcador, mais
+// ~20pt abaixo dela (cobre cabeçalho de coluna quebrado em 2 linhas). Olhar
+// só ali evita falso positivo com palavras genéricas soltas no resto do
+// extrato (ex: "CRÉDITO" em "Cooperativas de Crédito", "SALDO ANTERIOR" no
+// resumo final).
+//
+// Retorna { aplicavel, compativel, score, faltando }:
+//  - aplicavel: false se a config não tem `colunasEsperadas` (não dá pra conferir)
+//  - compativel: achou o marcadorInicio e todos os rótulos
+//  - score: quanto mais rótulos (e mais específico o marcador), maior — usado
+//    pra escolher o melhor modelo quando vários batem (ex: itau2 tem as
+//    colunas do itau1 + Razão Social, então ganha num extrato PJ)
+//  - faltando: rótulos (ou o marcador) que não foram encontrados
+//  - sobrando: rótulos de `colunasAusentes` que apareceram (não deviam)
+function validarModelo(pages, config) {
+  const colunas = config.colunasEsperadas || [];
+  if (colunas.length === 0) {
+    return { aplicavel: false, compativel: false, score: 0, faltando: [], sobrando: [] };
+  }
+  const tol = config.toleranciaLinha || 3;
+  const marcador = normalizarRotulo(config.marcadorInicio);
+
+  let regiao = null;
+  for (const items of pages.slice(0, 3)) {
+    const lines = [];
+    items
+      .map((raw) => ({ text: clean(raw.text), x0: raw.x0, top: raw.top }))
+      .filter((it) => it.text)
+      .sort((a, b) => a.top - b.top)
+      .forEach((it) => {
+        const line = lines.find((l) => Math.abs(l.top - it.top) <= tol);
+        if (line) line.items.push(it);
+        else lines.push({ top: it.top, items: [it] });
+      });
+    const textos = lines.map((l) => ({
+      top: l.top,
+      texto: normalizarRotulo(l.items.slice().sort((a, b) => a.x0 - b.x0).map((i) => i.text).join(' ')),
+    }));
+    const linhaMarcador = marcador ? textos.find((l) => l.texto.includes(marcador)) : null;
+    if (linhaMarcador) {
+      regiao = textos
+        .filter((l) => l.top <= linhaMarcador.top + 20)
+        .map((l) => l.texto)
+        .join('|');
+      break;
+    }
+  }
+
+  if (regiao === null) {
+    return {
+      aplicavel: true,
+      compativel: false,
+      score: 0,
+      sobrando: [],
+      faltando: [`cabeçalho "${config.marcadorInicio}"`],
+    };
+  }
+
+  const faltando = colunas.filter((c) => !regiao.includes(normalizarRotulo(c)));
+  const achados = colunas.length - faltando.length;
+  // `colunasAusentes` (opcional): rótulos que NÃO podem estar no cabeçalho —
+  // separa um modelo de outro que tem as mesmas colunas e mais alguma (ex:
+  // itau1 não tem "Razão Social", itau2 tem; sem isso um extrato PJ seria
+  // dado como compatível com o itau1 também).
+  const sobrando = (config.colunasAusentes || []).filter((c) => regiao.includes(normalizarRotulo(c)));
+  return {
+    aplicavel: true,
+    compativel: faltando.length === 0 && sobrando.length === 0,
+    score: achados * 100 + marcador.length,
+    faltando,
+    sobrando,
+  };
+}
+
 if (typeof module !== 'undefined') {
-  module.exports = { parseTransactions };
+  module.exports = { parseTransactions, validarModelo };
 } else {
-  window.ExtratoParser = { parseTransactions };
+  window.ExtratoParser = { parseTransactions, validarModelo };
 }
