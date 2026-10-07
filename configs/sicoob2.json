@@ -1,0 +1,25 @@
+{
+  "banco": "Sicoob",
+  "modelo": "sicoob2",
+  "descricaoModelo": "Extrato de conta corrente Sicoob (SISBR / Associação Digital) — data sem ano (ano vem da linha PERÍODO), valor com sufixo C/D colado, lançamentos do mais recente pro mais antigo, descrição em várias linhas ABAIXO da linha do valor",
+  "imagem": "images/sicoob2.png",
+  "marcadorInicio": "DATA HISTÓRICO VALOR",
+  "marcadorFim": "RESUMO",
+  "linhasIgnorar": [
+    "SALDO DO DIA",
+    "SALDO ANTERIOR",
+    "SALDO BLOQ.ANTERIOR"
+  ],
+  "colDataX": [90, 130],
+  "colDescricaoX": [135, 425],
+  "colValorX": [426, 520],
+  "formatoValor": "sufixoCD",
+  "moeda": "",
+  "separadorDecimal": ",",
+  "separadorMilhar": ".",
+  "formatoData": "DD/MM",
+  "anoContextoRegex": "PER[IÍ]ODO:?\\s*\\d{2}/\\d{2}/(\\d{4})",
+  "descricaoAbaixo": true,
+  "toleranciaLinha": 3,
+  "colunasEsperadas": ["DATA", "HISTÓRICO", "VALOR"]
+}

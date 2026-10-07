@@ -98,6 +98,13 @@
     "imagem": "images/sicoob1.png"
   },
   {
+    "id": "sicoob2",
+    "banco": "Sicoob",
+    "modelo": "Modelo 2 (SISBR / Associação Digital)",
+    "config": "configs/sicoob2.json",
+    "imagem": "images/sicoob2.png"
+  },
+  {
     "id": "itau2",
     "banco": "Itaú",
     "modelo": "Modelo 2 (PJ/empresas)",

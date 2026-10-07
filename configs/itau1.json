@@ -5,14 +5,34 @@
   "imagem": "images/itau1.png",
   "marcadorInicio": "valor (R$) saldo (R$)",
   "marcadorFim": "Aviso!",
-  "linhasIgnorar": ["SALDO DO DIA"],
-  "colDataX": [25, 90],
-  "colValorX": [400, 470],
-  "colDescricaoX": [90, 400],
+  "linhasIgnorar": [
+    "SALDO DO DIA"
+  ],
+  "colDataX": [
+    25,
+    90
+  ],
+  "colValorX": [
+    400,
+    470
+  ],
+  "colDescricaoX": [
+    90,
+    400
+  ],
   "moeda": "",
   "formatoValor": "sinalOpcional",
   "separadorDecimal": ",",
   "separadorMilhar": ".",
   "formatoData": "DD/MM/YYYY",
-  "toleranciaLinha": 3
+  "toleranciaLinha": 3,
+  "colunasEsperadas": [
+    "Data",
+    "Lançamentos",
+    "Valor (R$)",
+    "Saldo (R$)"
+  ],
+  "colunasAusentes": [
+    "Razão Social"
+  ]
 }
